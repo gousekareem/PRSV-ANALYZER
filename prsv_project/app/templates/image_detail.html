@@ -1,0 +1,356 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Image Detail{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">Image Detail</h2>
+        <p class="page-desc">
+            Review visual evidence, PRSV-oriented confidence, severity, retrieved support, and explanation output.
+        </p>
+    </div>
+    <div class="inline-actions">
+        <a class="btn-ghost" href="/run/{{ run_id }}">Back to Run</a>
+        <a class="btn-secondary" href="/api/analysis/run/{{ run_id }}/image/{{ image_id }}">Open JSON View</a>
+    </div>
+</section>
+
+{% set confidence = image_payload.prediction.confidence or 0 %}
+{% set mode = image_payload.prediction.inference_mode or "" %}
+{% set evidence_count = image_payload.explanation.retrieved_evidence|length if image_payload.explanation.retrieved_evidence else 0 %}
+{% set quality = image_payload.features.quality_assessment if image_payload.features.quality_assessment else {} %}
+{% set quality_warnings = quality.warnings if quality.warnings else [] %}
+{% set quality_status = quality.quality_status if quality.quality_status else "unknown" %}
+{% set segmentation = image_payload.features.segmentation if image_payload.features.segmentation else {} %}
+{% set segmentation_warnings = segmentation.quality_warnings if segmentation.quality_warnings else [] %}
+{% set segmentation_status = segmentation.quality_status if segmentation.quality_status else "unknown" %}
+{% set raw_prediction = image_payload.prediction.prediction %}
+{% set display_prediction = "Healthy" if raw_prediction == "Healthy" else "PRSV Suspected" %}
+
+{% if quality_warnings %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-warning">
+        <div class="alert-title">Image Quality Warning</div>
+        <p class="alert-text">
+            This result includes image-quality issues that may affect reliability.
+        </p>
+        <ul class="plain-list" style="margin-top: 10px;">
+            {% for warning in quality_warnings %}
+                <li>{{ warning }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{% if segmentation_warnings %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-warning">
+        <div class="alert-title">Segmentation Reliability Warning</div>
+        <p class="alert-text">
+            Leaf isolation quality is limited for this image, which may affect PRSV analysis reliability.
+        </p>
+        <ul class="plain-list" style="margin-top: 10px;">
+            {% for warning in segmentation_warnings %}
+                <li>{{ warning }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{% if mode == "heuristic_fallback" %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-warning">
+        <div class="alert-title">Fallback Analysis Mode</div>
+        <p class="alert-text">
+            This result was produced using heuristic fallback logic because a trained PRSV model was not available.
+        </p>
+    </div>
+</section>
+{% endif %}
+
+{% if confidence < 0.60 %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-warning">
+        <div class="alert-title">Low Confidence Result</div>
+        <p class="alert-text">
+            PRSV result confidence is limited for this image. Review visual evidence carefully and consider using a clearer image.
+        </p>
+    </div>
+</section>
+{% endif %}
+
+{% if evidence_count == 0 %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-info">
+        <div class="alert-title">Limited Evidence Support</div>
+        <p class="alert-text">
+            No retrieved PRSV knowledge evidence was available for this result. The output is still shown, but explanatory support is limited.
+        </p>
+    </div>
+</section>
+{% elif evidence_count == 1 %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-info">
+        <div class="alert-title">Moderate Evidence Support</div>
+        <p class="alert-text">
+            This result is supported by a limited number of retrieved PRSV evidence entries.
+        </p>
+    </div>
+</section>
+{% else %}
+<section style="margin-bottom: 18px;">
+    <div class="alert alert-success">
+        <div class="alert-title">Evidence-Backed Result</div>
+        <p class="alert-text">
+            This result includes retrieved PRSV-supporting evidence and a grounded explanation trace.
+        </p>
+    </div>
+</section>
+{% endif %}
+
+<section class="grid-4">
+    <article class="metric-card">
+        <span class="mini-label">Prediction</span>
+        <h3 class="metric-value">
+            {% if raw_prediction == "Healthy" %}
+                <span class="badge badge-success">Healthy</span>
+            {% else %}
+                <span class="badge badge-danger">PRSV Suspected</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">Primary PRSV-oriented classification output</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Confidence</span>
+        <h3 class="metric-value">{{ image_payload.prediction.confidence }}</h3>
+        <p class="helper-text">Prediction confidence score</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Image Quality</span>
+        <h3 class="metric-value">
+            {% if quality_status == "good" %}
+                <span class="badge badge-success">Good</span>
+            {% elif quality_status == "acceptable" %}
+                <span class="badge badge-warning">Acceptable</span>
+            {% elif quality_status == "poor" %}
+                <span class="badge badge-danger">Poor</span>
+            {% else %}
+                <span class="badge badge-neutral">Unknown</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">Input image quality status</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Segmentation</span>
+        <h3 class="metric-value">
+            {% if segmentation_status == "good" %}
+                <span class="badge badge-success">Good</span>
+            {% elif segmentation_status == "acceptable" %}
+                <span class="badge badge-warning">Acceptable</span>
+            {% elif segmentation_status == "weak" %}
+                <span class="badge badge-danger">Weak</span>
+            {% else %}
+                <span class="badge badge-neutral">Unknown</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">Leaf isolation reliability</p>
+    </article>
+</section>
+
+<section class="grid-2" style="margin-top: 24px;">
+    <article class="card">
+        <h3>Quality Summary</h3>
+        {% if quality.metrics %}
+            <ul class="plain-list">
+                <li><strong>Blur Score:</strong> {{ quality.metrics.blur_score }}</li>
+                <li><strong>Brightness Score:</strong> {{ quality.metrics.brightness_score }}</li>
+                <li><strong>Contrast Score:</strong> {{ quality.metrics.contrast_score }}</li>
+                <li><strong>Width:</strong> {{ quality.metrics.width }}</li>
+                <li><strong>Height:</strong> {{ quality.metrics.height }}</li>
+            </ul>
+        {% else %}
+            <p class="helper-text">No image quality metrics available.</p>
+        {% endif %}
+    </article>
+
+    <article class="card">
+        <h3>Segmentation Summary</h3>
+        {% if segmentation.quality_metrics %}
+            <ul class="plain-list">
+                <li><strong>Quality Score:</strong> {{ segmentation.quality_score }}</li>
+                <li><strong>Leaf Area Ratio:</strong> {{ segmentation.leaf_area_ratio }}</li>
+                <li><strong>Coverage Ratio:</strong> {{ segmentation.quality_metrics.leaf_coverage_ratio }}</li>
+                <li><strong>Contour Count:</strong> {{ segmentation.quality_metrics.contour_count }}</li>
+                <li><strong>Largest Contour Ratio:</strong> {{ segmentation.quality_metrics.largest_contour_ratio }}</li>
+            </ul>
+        {% else %}
+            <p class="helper-text">No segmentation quality metrics available.</p>
+        {% endif %}
+    </article>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Visual Evidence</h3>
+            <p class="section-subtitle">Saved result artifacts generated during analysis.</p>
+        </div>
+    </div>
+
+    <div class="grid-3">
+        {% set paths = image_payload.paths %}
+        {% if paths.get('original.jpg') %}
+        <div class="card">
+            <h3>Original</h3>
+            <img class="result-image" src="{{ paths.get('original.jpg') }}" alt="Original image">
+        </div>
+        {% endif %}
+
+        {% if paths.get('preprocessed.jpg') %}
+        <div class="card">
+            <h3>Preprocessed</h3>
+            <img class="result-image" src="{{ paths.get('preprocessed.jpg') }}" alt="Preprocessed image">
+        </div>
+        {% endif %}
+
+        {% if paths.get('segmented.jpg') %}
+        <div class="card">
+            <h3>Segmented Leaf</h3>
+            <img class="result-image" src="{{ paths.get('segmented.jpg') }}" alt="Segmented leaf image">
+        </div>
+        {% endif %}
+
+        {% if paths.get('symptom_highlighted.jpg') %}
+        <div class="card">
+            <h3>Symptom Highlight</h3>
+            <img class="result-image" src="{{ paths.get('symptom_highlighted.jpg') }}" alt="Symptom highlighted image">
+        </div>
+        {% endif %}
+
+        {% if paths.get('edge_overlay.jpg') %}
+        <div class="card">
+            <h3>Edge Overlay</h3>
+            <img class="result-image" src="{{ paths.get('edge_overlay.jpg') }}" alt="Edge overlay image">
+        </div>
+        {% endif %}
+
+        {% if paths.get('severity_overlay.jpg') %}
+        <div class="card">
+            <h3>Severity Overlay</h3>
+            <img class="result-image" src="{{ paths.get('severity_overlay.jpg') }}" alt="Severity overlay image">
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="grid-2" style="margin-top: 24px;">
+    <article class="card">
+        <h3>Prediction Summary</h3>
+        <ul class="plain-list">
+            <li><strong>Class:</strong> {{ display_prediction }}</li>
+            <li><strong>Confidence:</strong> {{ image_payload.prediction.confidence }}</li>
+            <li><strong>Inference Mode:</strong> {{ image_payload.prediction.inference_mode }}</li>
+            <li><strong>Infection %:</strong> {{ image_payload.severity.infection_percentage }}</li>
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Severity Summary</h3>
+        <ul class="plain-list">
+            <li><strong>Infection %:</strong> {{ image_payload.severity.infection_percentage }}</li>
+            <li><strong>Severity Score:</strong> {{ image_payload.severity.severity_score }}</li>
+            <li><strong>Severity Label:</strong> {{ image_payload.severity.severity_label }}</li>
+            <li><strong>Severity Confidence:</strong> {{ image_payload.severity.severity_confidence }}</li>
+        </ul>
+    </article>
+</section>
+
+<section class="grid-2" style="margin-top: 24px;">
+    <article class="card">
+        <h3>Observation Summary</h3>
+        {% if image_payload.explanation.key_findings %}
+            <ul class="plain-list">
+                {% for finding in image_payload.explanation.key_findings %}
+                    <li>{{ finding }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="helper-text">{{ image_payload.explanation.observation_query }}</p>
+        {% endif %}
+    </article>
+
+    <article class="card">
+        <h3>Feature Summary</h3>
+        {% if image_payload.features.feature_values %}
+            <ul class="plain-list">
+                {% for key, value in image_payload.features.feature_values.items() %}
+                    <li><strong>{{ key }}:</strong> {{ value }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="helper-text">No feature values found.</p>
+        {% endif %}
+    </article>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Retrieved Evidence</h3>
+            <p class="section-subtitle">Top supporting knowledge entries retrieved for this result.</p>
+        </div>
+    </div>
+
+    {% if image_payload.explanation.retrieved_evidence %}
+        <div class="grid-2">
+            {% for item in image_payload.explanation.retrieved_evidence %}
+            <article class="card">
+                <div class="inline-between">
+                    <h3 style="margin: 0;">{{ item.title }}</h3>
+                    <span class="badge badge-neutral">Score {{ item.similarity_score }}</span>
+                </div>
+                <p class="helper-text" style="margin-top: 12px;">{{ item.text }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <section class="empty-state">
+            <h3>No retrieved evidence</h3>
+            <p>No evidence entries were available for this image result.</p>
+        </section>
+    {% endif %}
+</section>
+
+<section class="grid-2" style="margin-top: 24px;">
+    <article class="card">
+        <h3>Technical Explanation</h3>
+        <p>{{ image_payload.explanation.technical_explanation }}</p>
+    </article>
+
+    <article class="card">
+        <h3>Farmer-Friendly Explanation</h3>
+        <p>{{ image_payload.explanation.farmer_friendly_explanation }}</p>
+    </article>
+</section>
+
+<section style="margin-top: 24px;">
+    <article class="card">
+        <h3>Advisory Notes</h3>
+        {% if image_payload.explanation.advisory_notes %}
+            <ul class="plain-list">
+                {% for note in image_payload.explanation.advisory_notes %}
+                    <li>{{ note }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="helper-text">No advisory notes available.</p>
+        {% endif %}
+    </article>
+</section>
+{% endblock %}

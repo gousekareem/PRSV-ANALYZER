@@ -1,0 +1,60 @@
+{
+  "image_id": "img_d8b1f28a0c",
+  "filename": "Healthy(1).jpg",
+  "feature_vector": [
+    0.49653,
+    0.423891,
+    0.287009,
+    0.492806,
+    0.219886,
+    0.052748,
+    0.908312
+  ],
+  "feature_values": {
+    "brightness": 0.49653,
+    "green_ratio": 0.423891,
+    "hue_mean": 0.287009,
+    "saturation_mean": 0.492806,
+    "edge_density": 0.219886,
+    "color_variance": 0.052748,
+    "entropy": 0.908312
+  },
+  "diagnostics": {
+    "masked_gray_pixels": 15931.0,
+    "masked_rgb_pixels": 15931.0,
+    "nonzero_edge_pixels": 3503.0
+  },
+  "preprocess_metadata": {
+    "original_shape": [
+      480,
+      640,
+      3
+    ],
+    "resized_shape": [
+      128,
+      128,
+      3
+    ],
+    "grayscale_shape": [
+      128,
+      128
+    ],
+    "hsv_shape": [
+      128,
+      128,
+      3
+    ],
+    "normalized_min": 0.0,
+    "normalized_max": 0.9843137264251709
+  },
+  "segmentation": {
+    "leaf_area_ratio": 0.97235107421875,
+    "contour_count": 1,
+    "used_fallback": false,
+    "success": true
+  },
+  "symptom_analysis": {
+    "abnormal_color_score": 0.2554233268224118,
+    "symptom_region_ratio": 0.015567
+  }
+}

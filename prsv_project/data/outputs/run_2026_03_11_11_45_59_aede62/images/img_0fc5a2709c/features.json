@@ -1,0 +1,72 @@
+{
+  "image_id": "img_0fc5a2709c",
+  "filename": "Healthy(172).jpg",
+  "feature_vector": [
+    0.47818,
+    0.440968,
+    0.305707,
+    0.466544,
+    0.188416,
+    0.046558,
+    0.882736
+  ],
+  "feature_values": {
+    "brightness": 0.47818,
+    "green_ratio": 0.440968,
+    "hue_mean": 0.305707,
+    "saturation_mean": 0.466544,
+    "edge_density": 0.188416,
+    "color_variance": 0.046558,
+    "entropy": 0.882736
+  },
+  "diagnostics": {
+    "masked_gray_pixels": 16384.0,
+    "masked_rgb_pixels": 16384.0,
+    "nonzero_edge_pixels": 3087.0
+  },
+  "preprocess_metadata": {
+    "original_shape": [
+      480,
+      640,
+      3
+    ],
+    "resized_shape": [
+      128,
+      128,
+      3
+    ],
+    "grayscale_shape": [
+      128,
+      128
+    ],
+    "hsv_shape": [
+      128,
+      128,
+      3
+    ],
+    "normalized_min": 0.0,
+    "normalized_max": 0.9882352948188782
+  },
+  "quality_assessment": {
+    "quality_status": "good",
+    "warnings": [],
+    "metrics": {
+      "blur_score": 755.4659,
+      "brightness_score": 121.9159,
+      "contrast_score": 37.451,
+      "width": 640.0,
+      "height": 480.0
+    },
+    "is_small_image": false
+  },
+  "segmentation": {
+    "leaf_area_ratio": 1.0,
+    "contour_count": 1,
+    "used_fallback": false,
+    "success": true
+  },
+  "symptom_analysis": {
+    "abnormal_color_score": 0.2676607019761029,
+    "symptom_region_ratio": 0.007202
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "image_id": "img_118ca21008",
+  "infection_percentage": 41.8879,
+  "severity_score": 41.8879,
+  "severity_label": "Moderate",
+  "severity_confidence": 50.9564,
+  "symptom_region_ratio": 0.040441,
+  "reasoning_trace": {
+    "inverse_green_ratio": 0.573787,
+    "edge_density": 0.245885,
+    "entropy": 0.921065,
+    "abnormal_color_score": 0.266699,
+    "symptom_region_ratio": 0.040441,
+    "formula_mode": "weighted_image_processing_based"
+  }
+}

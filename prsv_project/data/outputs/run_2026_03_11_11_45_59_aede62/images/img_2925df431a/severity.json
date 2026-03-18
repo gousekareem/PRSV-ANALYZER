@@ -1,0 +1,16 @@
+{
+  "image_id": "img_2925df431a",
+  "infection_percentage": 40.5331,
+  "severity_score": 40.5331,
+  "severity_label": "Moderate",
+  "severity_confidence": 48.2378,
+  "symptom_region_ratio": 0.00696,
+  "reasoning_trace": {
+    "inverse_green_ratio": 0.624458,
+    "edge_density": 0.189844,
+    "entropy": 0.895211,
+    "abnormal_color_score": 0.223498,
+    "symptom_region_ratio": 0.00696,
+    "formula_mode": "weighted_image_processing_based"
+  }
+}

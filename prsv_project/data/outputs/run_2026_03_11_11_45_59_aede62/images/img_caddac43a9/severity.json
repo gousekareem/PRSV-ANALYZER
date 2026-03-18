@@ -1,0 +1,16 @@
+{
+  "image_id": "img_caddac43a9",
+  "infection_percentage": 39.1433,
+  "severity_score": 39.1433,
+  "severity_label": "Moderate",
+  "severity_confidence": 49.1869,
+  "symptom_region_ratio": 0.028762,
+  "reasoning_trace": {
+    "inverse_green_ratio": 0.540522,
+    "edge_density": 0.212717,
+    "entropy": 0.923346,
+    "abnormal_color_score": 0.219582,
+    "symptom_region_ratio": 0.028762,
+    "formula_mode": "weighted_image_processing_based"
+  }
+}

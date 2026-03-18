@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Status{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">System Status</h2>
+        <p class="page-desc">
+            Review current platform readiness, model availability, dataset access, and workspace health.
+        </p>
+    </div>
+</section>
+
+<section class="grid-4">
+    <article class="metric-card">
+        <span class="mini-label">Application</span>
+        <h3 class="metric-value"><span class="badge badge-success">Online</span></h3>
+        <p class="helper-text">{{ app_name }} · v{{ app_version }}</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Model</span>
+        <h3 class="metric-value">
+            {% if model_available %}
+                <span class="badge badge-success">Available</span>
+            {% else %}
+                <span class="badge badge-warning">Fallback Mode</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">Prediction engine readiness</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Knowledge Base</span>
+        <h3 class="metric-value">
+            {% if kb_available %}
+                <span class="badge badge-success">Available</span>
+            {% else %}
+                <span class="badge badge-danger">Missing</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">RAG explanation support</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Demo Dataset</span>
+        <h3 class="metric-value">
+            {% if demo_dataset_available %}
+                <span class="badge badge-success">Ready</span>
+            {% else %}
+                <span class="badge badge-warning">Unavailable</span>
+            {% endif %}
+        </h3>
+        <p class="helper-text">{{ demo_count }} demo image(s) detected</p>
+    </article>
+</section>
+
+<section class="grid-3" style="margin-top: 24px;">
+    <article class="card">
+        <h3>Storage Status</h3>
+        <ul class="plain-list">
+            <li>
+                <strong>Uploads Directory:</strong>
+                {% if writable_checks.uploads_writable %}
+                    <span class="badge badge-success">Ready</span>
+                {% else %}
+                    <span class="badge badge-danger">Unavailable</span>
+                {% endif %}
+            </li>
+            <li>
+                <strong>Outputs Directory:</strong>
+                {% if writable_checks.outputs_writable %}
+                    <span class="badge badge-success">Ready</span>
+                {% else %}
+                    <span class="badge badge-danger">Unavailable</span>
+                {% endif %}
+            </li>
+            <li>
+                <strong>Temp Directory:</strong>
+                {% if writable_checks.temp_writable %}
+                    <span class="badge badge-success">Ready</span>
+                {% else %}
+                    <span class="badge badge-danger">Unavailable</span>
+                {% endif %}
+            </li>
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Platform Notes</h3>
+        <ul class="plain-list">
+            <li>Model fallback mode is used automatically if trained model files are unavailable.</li>
+            <li>Run folders are stored with timestamped output structure.</li>
+            <li>RAG explanations depend on knowledge-base availability.</li>
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Quick Actions</h3>
+        <div class="stack">
+            <a class="btn" href="/analyze">Open Analyze</a>
+            <a class="btn-secondary" href="/results">Open Runs</a>
+            <a class="btn-ghost" href="/api/health">Raw Health API</a>
+        </div>
+    </article>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Recent Runs</h3>
+            <p class="section-subtitle">Latest completed runs visible from the status workspace.</p>
+        </div>
+    </div>
+
+    {% if recent_runs %}
+    <div class="grid-2">
+        {% for run in recent_runs %}
+        <article class="card">
+            <div class="inline-between">
+                <div>
+                    <h3 style="margin: 0 0 6px;">{{ run.run_id }}</h3>
+                    <p class="helper-text" style="margin: 0;">{{ run.processed_images or 0 }} processed</p>
+                </div>
+                <a class="btn-ghost" href="/run/{{ run.run_id }}">Open</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <section class="empty-state">
+        <h3>No recent runs available</h3>
+        <p>Use the Analyze page to generate your first completed run.</p>
+        <a class="btn" href="/analyze">Start Analysis</a>
+    </section>
+    {% endif %}
+</section>
+{% endblock %}

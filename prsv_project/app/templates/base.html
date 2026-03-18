@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PRSV ANALYZER{% endblock %}</title>
+    <meta name="description"
+        content="PRSV ANALYZER - premium papaya leaf disease analysis platform with image processing, ML, and grounded explanations.">
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container nav-shell">
+            <a href="/" class="brand-block">
+                <div class="brand-mark">PA</div>
+                <div class="brand-copy">
+                    <h1 class="brand-title">PRSV ANALYZER</h1>
+                    <p class="brand-subtitle">Papaya Leaf Disease Analysis Platform</p>
+                </div>
+            </a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="/">Home</a>
+                <a href="/analyze">Analyze</a>
+                <a href="/results">Runs</a>
+                <a href="/batch-results">Batch</a>
+                <a href="/status">Status</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container app-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-shell">
+            <div>
+                <p class="footer-brand">PRSV ANALYZER</p>
+                <p class="footer-text">
+                    Developed by Shaik Gouse Kareem and Addanki Harini under the guidance of Dr. Viswanath Shenoi
+                </p>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/analyze">Analyze</a>
+                <a href="/results">Runs</a>
+                <a href="/status">Status</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="global-loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-card">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <h3 id="loading-title">Processing request</h3>
+            <p id="loading-message">Preparing analysis workflow…</p>
+
+            <div class="progress-shell" aria-hidden="true">
+                <div id="loading-progress-bar" class="progress-bar"></div>
+            </div>
+
+            <ul id="loading-steps" class="loading-steps">
+                <li class="active">Uploading files</li>
+                <li>Validating inputs</li>
+                <li>Running analysis</li>
+                <li>Preparing results</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

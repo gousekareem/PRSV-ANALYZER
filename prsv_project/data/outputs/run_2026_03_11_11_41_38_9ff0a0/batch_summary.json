@@ -1,0 +1,255 @@
+{
+  "run_id": "run_2026_03_11_11_41_38_9ff0a0",
+  "total_images": 3,
+  "processed_images": 3,
+  "failed_images": 0,
+  "healthy_count": 1,
+  "diseased_count": 2,
+  "average_confidence": 0.6941,
+  "average_infection_percentage": 36.6581,
+  "severity_distribution": {
+    "Moderate": 3
+  },
+  "results": [
+    {
+      "image_id": "img_4c6e74c0ca",
+      "filename": "RingSpot_99_.jpg",
+      "prediction": "Healthy",
+      "confidence": 0.5985,
+      "infection_percentage": 35.6784,
+      "severity_score": 35.6784,
+      "severity_label": "Moderate",
+      "feature_values": {
+        "brightness": 0.525125,
+        "green_ratio": 0.437583,
+        "hue_mean": 0.202469,
+        "saturation_mean": 0.688891,
+        "edge_density": 0.059448,
+        "color_variance": 0.042134,
+        "entropy": 0.801978
+      },
+      "output_paths": {
+        "original": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\original.jpg",
+        "preprocessed": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\preprocessed.jpg",
+        "segmented": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\segmented.jpg",
+        "segmentation_contour": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\segmentation_contour.jpg",
+        "symptom_highlighted": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\symptom_highlighted.jpg",
+        "leaf_mask": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\leaf_mask.png",
+        "edge_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\edge_heatmap.jpg",
+        "edge_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\edge_overlay.jpg",
+        "severity_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\severity_heatmap.jpg",
+        "severity_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\severity_overlay.jpg",
+        "features_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\features.json",
+        "prediction_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\prediction.json",
+        "severity_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\severity.json",
+        "rag_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\rag.json",
+        "explanation_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_4c6e74c0ca\\explanation.json"
+      },
+      "explanation_trace": {
+        "observation_query": "Papaya leaf Healthy with severity Moderate, severity score 35.68, green ratio 0.4376, edge density 0.0594, entropy 0.8020, saturation mean 0.6889, abnormal color score 0.6645, symptom region ratio 0.0074, possible chlorosis, mosaic, discoloration, texture irregularity, PRSV symptoms.",
+        "key_findings": [
+          "Prediction: Healthy",
+          "Confidence: 0.5985",
+          "Severity label: Moderate",
+          "Severity score: 35.68",
+          "Green ratio: 0.4376",
+          "Edge density: 0.0594",
+          "Entropy: 0.8020",
+          "Saturation mean: 0.6889",
+          "Abnormal color score: 0.6645",
+          "Symptom region ratio: 0.0074",
+          "Segmentation success: True"
+        ],
+        "retrieved_evidence": [
+          {
+            "chunk_id": "prsv_002",
+            "title": "Leaf symptom pattern",
+            "text": "Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue.",
+            "similarity_score": 0.431288
+          },
+          {
+            "chunk_id": "prsv_005",
+            "title": "Severity progression",
+            "text": "As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+            "similarity_score": 0.407485
+          },
+          {
+            "chunk_id": "prsv_004",
+            "title": "Texture and irregularity",
+            "text": "Higher texture irregularity, edge-rich damaged regions, and visually inconsistent patches can correspond to symptomatic leaf areas. These patterns are useful for image-based disease interpretation.",
+            "similarity_score": 0.310533
+          }
+        ],
+        "technical_explanation": "The papaya leaf image was classified as Healthy with confidence 0.5985. Image-derived evidence indicates green ratio 0.4376, edge density 0.0594, entropy 0.8020, and saturation mean 0.6889. The estimated severity is Moderate with score 35.68. Retrieved PRSV knowledge supports interpretation of discoloration, chlorosis, mosaic-like symptoms, and symptom progression patterns. Evidence summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "farmer_friendly_explanation": "The system marked this papaya leaf as Healthy with moderate symptoms. The leaf shows visual changes linked to possible disease stress, such as color loss, abnormal patterns, or damaged-looking regions. Based on stored PRSV reference knowledge, similar symptoms can be associated with virus infection and field spread risk. Guidance summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "advisory_notes": [
+          "Inspect nearby leaves and plants for similar visual symptoms.",
+          "Monitor the field for aphid activity because PRSV can spread through vectors.",
+          "Retain this image report for agronomy verification and project documentation.",
+          "Seek agricultural expert review quickly if multiple plants show similar symptoms."
+        ]
+      }
+    },
+    {
+      "image_id": "img_c39bbc2d78",
+      "filename": "RingSpot_100_.jpg",
+      "prediction": "Diseased",
+      "confidence": 0.7426,
+      "infection_percentage": 38.1956,
+      "severity_score": 38.1956,
+      "severity_label": "Moderate",
+      "feature_values": {
+        "brightness": 0.519961,
+        "green_ratio": 0.424036,
+        "hue_mean": 0.19666,
+        "saturation_mean": 0.663802,
+        "edge_density": 0.075026,
+        "color_variance": 0.047017,
+        "entropy": 0.815428
+      },
+      "output_paths": {
+        "original": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\original.jpg",
+        "preprocessed": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\preprocessed.jpg",
+        "segmented": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\segmented.jpg",
+        "segmentation_contour": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\segmentation_contour.jpg",
+        "symptom_highlighted": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\symptom_highlighted.jpg",
+        "leaf_mask": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\leaf_mask.png",
+        "edge_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\edge_heatmap.jpg",
+        "edge_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\edge_overlay.jpg",
+        "severity_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\severity_heatmap.jpg",
+        "severity_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\severity_overlay.jpg",
+        "features_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\features.json",
+        "prediction_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\prediction.json",
+        "severity_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\severity.json",
+        "rag_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\rag.json",
+        "explanation_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_c39bbc2d78\\explanation.json"
+      },
+      "explanation_trace": {
+        "observation_query": "Papaya leaf Diseased with severity Moderate, severity score 38.20, green ratio 0.4240, edge density 0.0750, entropy 0.8154, saturation mean 0.6638, abnormal color score 0.7192, symptom region ratio 0.0136, possible chlorosis, mosaic, discoloration, texture irregularity, PRSV symptoms.",
+        "key_findings": [
+          "Prediction: Diseased",
+          "Confidence: 0.7426",
+          "Severity label: Moderate",
+          "Severity score: 38.20",
+          "Green ratio: 0.4240",
+          "Edge density: 0.0750",
+          "Entropy: 0.8154",
+          "Saturation mean: 0.6638",
+          "Abnormal color score: 0.7192",
+          "Symptom region ratio: 0.0136",
+          "Segmentation success: True"
+        ],
+        "retrieved_evidence": [
+          {
+            "chunk_id": "prsv_002",
+            "title": "Leaf symptom pattern",
+            "text": "Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue.",
+            "similarity_score": 0.431288
+          },
+          {
+            "chunk_id": "prsv_005",
+            "title": "Severity progression",
+            "text": "As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+            "similarity_score": 0.407485
+          },
+          {
+            "chunk_id": "prsv_004",
+            "title": "Texture and irregularity",
+            "text": "Higher texture irregularity, edge-rich damaged regions, and visually inconsistent patches can correspond to symptomatic leaf areas. These patterns are useful for image-based disease interpretation.",
+            "similarity_score": 0.310533
+          }
+        ],
+        "technical_explanation": "The papaya leaf image was classified as Diseased with confidence 0.7426. Image-derived evidence indicates green ratio 0.4240, edge density 0.0750, entropy 0.8154, and saturation mean 0.6638. The estimated severity is Moderate with score 38.20. Retrieved PRSV knowledge supports interpretation of discoloration, chlorosis, mosaic-like symptoms, and symptom progression patterns. Evidence summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "farmer_friendly_explanation": "The system marked this papaya leaf as Diseased with moderate symptoms. The leaf shows visual changes linked to possible disease stress, such as color loss, abnormal patterns, or damaged-looking regions. Based on stored PRSV reference knowledge, similar symptoms can be associated with virus infection and field spread risk. Guidance summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "advisory_notes": [
+          "Inspect nearby leaves and plants for similar visual symptoms.",
+          "Monitor the field for aphid activity because PRSV can spread through vectors.",
+          "Retain this image report for agronomy verification and project documentation.",
+          "Isolate or mark suspected infected plants to reduce local spread risk.",
+          "Seek agricultural expert review quickly if multiple plants show similar symptoms."
+        ]
+      }
+    },
+    {
+      "image_id": "img_0fae0743c4",
+      "filename": "RingSpot_101_.jpg",
+      "prediction": "Diseased",
+      "confidence": 0.7411,
+      "infection_percentage": 36.1002,
+      "severity_score": 36.1002,
+      "severity_label": "Moderate",
+      "feature_values": {
+        "brightness": 0.46196,
+        "green_ratio": 0.433058,
+        "hue_mean": 0.218281,
+        "saturation_mean": 0.615772,
+        "edge_density": 0.099426,
+        "color_variance": 0.03347,
+        "entropy": 0.815897
+      },
+      "output_paths": {
+        "original": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\original.jpg",
+        "preprocessed": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\preprocessed.jpg",
+        "segmented": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\segmented.jpg",
+        "segmentation_contour": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\segmentation_contour.jpg",
+        "symptom_highlighted": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\symptom_highlighted.jpg",
+        "leaf_mask": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\leaf_mask.png",
+        "edge_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\edge_heatmap.jpg",
+        "edge_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\edge_overlay.jpg",
+        "severity_heatmap": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\severity_heatmap.jpg",
+        "severity_overlay": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\severity_overlay.jpg",
+        "features_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\features.json",
+        "prediction_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\prediction.json",
+        "severity_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\severity.json",
+        "rag_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\rag.json",
+        "explanation_json": "D:\\PRSV Project\\prsv_project\\data\\outputs\\run_2026_03_11_11_41_38_9ff0a0\\images\\img_0fae0743c4\\explanation.json"
+      },
+      "explanation_trace": {
+        "observation_query": "Papaya leaf Diseased with severity Moderate, severity score 36.10, green ratio 0.4331, edge density 0.0994, entropy 0.8159, saturation mean 0.6158, abnormal color score 0.5407, symptom region ratio 0.0204, possible chlorosis, mosaic, discoloration, texture irregularity, PRSV symptoms.",
+        "key_findings": [
+          "Prediction: Diseased",
+          "Confidence: 0.7411",
+          "Severity label: Moderate",
+          "Severity score: 36.10",
+          "Green ratio: 0.4331",
+          "Edge density: 0.0994",
+          "Entropy: 0.8159",
+          "Saturation mean: 0.6158",
+          "Abnormal color score: 0.5407",
+          "Symptom region ratio: 0.0204",
+          "Segmentation success: True"
+        ],
+        "retrieved_evidence": [
+          {
+            "chunk_id": "prsv_002",
+            "title": "Leaf symptom pattern",
+            "text": "Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue.",
+            "similarity_score": 0.431288
+          },
+          {
+            "chunk_id": "prsv_005",
+            "title": "Severity progression",
+            "text": "As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+            "similarity_score": 0.407485
+          },
+          {
+            "chunk_id": "prsv_004",
+            "title": "Texture and irregularity",
+            "text": "Higher texture irregularity, edge-rich damaged regions, and visually inconsistent patches can correspond to symptomatic leaf areas. These patterns are useful for image-based disease interpretation.",
+            "similarity_score": 0.310533
+          }
+        ],
+        "technical_explanation": "The papaya leaf image was classified as Diseased with confidence 0.7411. Image-derived evidence indicates green ratio 0.4331, edge density 0.0994, entropy 0.8159, and saturation mean 0.6158. The estimated severity is Moderate with score 36.10. Retrieved PRSV knowledge supports interpretation of discoloration, chlorosis, mosaic-like symptoms, and symptom progression patterns. Evidence summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "farmer_friendly_explanation": "The system marked this papaya leaf as Diseased with moderate symptoms. The leaf shows visual changes linked to possible disease stress, such as color loss, abnormal patterns, or damaged-looking regions. Based on stored PRSV reference knowledge, similar symptoms can be associated with virus infection and field spread risk. Guidance summary: Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue. As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+        "advisory_notes": [
+          "Inspect nearby leaves and plants for similar visual symptoms.",
+          "Monitor the field for aphid activity because PRSV can spread through vectors.",
+          "Retain this image report for agronomy verification and project documentation.",
+          "Isolate or mark suspected infected plants to reduce local spread risk.",
+          "Seek agricultural expert review quickly if multiple plants show similar symptoms."
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

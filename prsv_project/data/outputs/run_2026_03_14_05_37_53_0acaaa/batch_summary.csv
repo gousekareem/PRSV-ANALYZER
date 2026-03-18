@@ -1,0 +1,4 @@
+image_id,filename,prediction,confidence,infection_percentage,severity_score,severity_label
+img_f7f57079b6,Healthy_7_.jpg,PRSV Suspected,0.7622,40.1227,40.1227,Moderate
+img_0c35289cd0,Healthy_8_.jpg,PRSV Suspected,0.7603,39.2012,39.2012,Moderate
+img_9b011ea495,Healthy_9__1.jpg,PRSV Suspected,0.7542,39.6515,39.6515,Moderate

@@ -1,0 +1,4 @@
+image_id,filename,prediction,confidence,infection_percentage,severity_score,severity_label
+img_570a3f3c36,Healthy(1).jpg,Diseased,0.76,39.9363,39.9363,Moderate
+img_993d3f9ccf,Healthy(10).jpg,Diseased,0.7584,39.925,39.925,Moderate
+img_ae199561d0,Healthy(100).jpg,Diseased,0.761,41.3653,41.3653,Moderate

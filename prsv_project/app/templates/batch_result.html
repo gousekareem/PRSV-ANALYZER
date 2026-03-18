@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Runs{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">Run History</h2>
+        <p class="page-desc">
+            Browse completed PRSV analysis runs, search by run id, and filter by result patterns.
+        </p>
+    </div>
+</section>
+
+<section class="card" style="margin-bottom: 22px;">
+    <form method="get" action="/results" class="filters-grid">
+        <div>
+            <label for="search">Search Run ID</label>
+            <input id="search" type="text" name="search" value="{{ search }}" placeholder="Search by run id">
+        </div>
+
+        <div>
+            <label for="status_filter">Result Filter</label>
+            <select id="status_filter" name="status_filter">
+                <option value="" {% if not status_filter %}selected{% endif %}>All Runs</option>
+                <option value="healthy" {% if status_filter == "healthy" %}selected{% endif %}>Healthy Only</option>
+                <option value="diseased" {% if status_filter == "diseased" %}selected{% endif %}>PRSV Suspected Present</option>
+                <option value="mixed" {% if status_filter == "mixed" %}selected{% endif %}>Mixed Result</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="severity_filter">Severity Filter</label>
+            <select id="severity_filter" name="severity_filter">
+                <option value="" {% if not severity_filter %}selected{% endif %}>All Severities</option>
+                <option value="Healthy" {% if severity_filter == "Healthy" %}selected{% endif %}>Healthy</option>
+                <option value="Very mild" {% if severity_filter == "Very mild" %}selected{% endif %}>Very mild</option>
+                <option value="Mild to moderate" {% if severity_filter == "Mild to moderate" %}selected{% endif %}>Mild to moderate</option>
+                <option value="Moderate" {% if severity_filter == "Moderate" %}selected{% endif %}>Moderate</option>
+                <option value="Moderate to severe" {% if severity_filter == "Moderate to severe" %}selected{% endif %}>Moderate to severe</option>
+                <option value="Severe" {% if severity_filter == "Severe" %}selected{% endif %}>Severe</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="sort_by">Sort By</label>
+            <select id="sort_by" name="sort_by">
+                <option value="newest" {% if sort_by == "newest" %}selected{% endif %}>Newest First</option>
+                <option value="oldest" {% if sort_by == "oldest" %}selected{% endif %}>Oldest First</option>
+            </select>
+        </div>
+
+        <div class="filters-actions">
+            <button class="btn" type="submit">Apply Filters</button>
+            <a class="btn-ghost" href="/results">Reset</a>
+        </div>
+    </form>
+</section>
+
+{% if runs %}
+<section class="grid-3">
+    {% for run in runs %}
+    <article class="metric-card">
+        <div class="stack">
+            <div class="inline-between">
+                <span class="badge badge-neutral">Run</span>
+                <span class="helper-text">{{ run.run_id }}</span>
+            </div>
+
+            <div>
+                <h3 style="margin: 0 0 8px;">{{ run.run_id }}</h3>
+                <p class="helper-text" style="margin: 0;">
+                    Processed {{ run.processed_images or 0 }} image(s)
+                    {% if run.failed_images %}
+                        · {{ run.failed_images }} failed
+                    {% endif %}
+                </p>
+            </div>
+
+            <div class="mini-metrics">
+                <div>
+                    <span class="mini-label">Healthy</span>
+                    <strong>{{ run.healthy_count or 0 }}</strong>
+                </div>
+                <div>
+                    <span class="mini-label">PRSV Suspected</span>
+                    <strong>{{ run.diseased_count or 0 }}</strong>
+                </div>
+                <div>
+                    <span class="mini-label">Avg Confidence</span>
+                    <strong>{{ run.average_confidence or 0 }}</strong>
+                </div>
+            </div>
+
+            <div class="inline-actions">
+                <a class="btn" href="/run/{{ run.run_id }}">Open Run</a>
+                <a class="btn-ghost" href="/api/analysis/run/{{ run.run_id }}/download">Download</a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% else %}
+<section class="empty-state">
+    <h3>No matching runs found</h3>
+    <p>Try adjusting your search or filters, or start a new PRSV analysis run.</p>
+    <div class="inline-actions" style="justify-content: center;">
+        <a class="btn" href="/analyze">Start Analysis</a>
+        <a class="btn-ghost" href="/results">Clear Filters</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

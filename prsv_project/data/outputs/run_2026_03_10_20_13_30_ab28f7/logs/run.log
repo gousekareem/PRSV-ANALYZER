@@ -1,0 +1,22 @@
+2026-03-10 20:13:30 | INFO | batch_service | Batch analysis started. Total input images: 10
+2026-03-10 20:13:30 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(1).jpg
+2026-03-10 20:13:31 | INFO | analysis_service | Analysis completed for image=Healthy(1).jpg | prediction=Diseased | confidence=0.7600 | severity=Moderate
+2026-03-10 20:13:31 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(10).jpg
+2026-03-10 20:13:31 | INFO | analysis_service | Analysis completed for image=Healthy(10).jpg | prediction=Diseased | confidence=0.7584 | severity=Moderate
+2026-03-10 20:13:31 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(100).jpg
+2026-03-10 20:13:32 | INFO | analysis_service | Analysis completed for image=Healthy(100).jpg | prediction=Diseased | confidence=0.7610 | severity=Moderate
+2026-03-10 20:13:32 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(101).jpg
+2026-03-10 20:13:32 | INFO | analysis_service | Analysis completed for image=Healthy(101).jpg | prediction=Diseased | confidence=0.7629 | severity=Moderate
+2026-03-10 20:13:32 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(102).jpg
+2026-03-10 20:13:32 | INFO | analysis_service | Analysis completed for image=Healthy(102).jpg | prediction=Diseased | confidence=0.7448 | severity=Moderate
+2026-03-10 20:13:32 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(103).jpg
+2026-03-10 20:13:33 | INFO | analysis_service | Analysis completed for image=Healthy(103).jpg | prediction=Diseased | confidence=0.7673 | severity=Moderate
+2026-03-10 20:13:33 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(104).jpg
+2026-03-10 20:13:33 | INFO | analysis_service | Analysis completed for image=Healthy(104).jpg | prediction=Diseased | confidence=0.7672 | severity=Moderate
+2026-03-10 20:13:33 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(105).jpg
+2026-03-10 20:13:34 | INFO | analysis_service | Analysis completed for image=Healthy(105).jpg | prediction=Diseased | confidence=0.7669 | severity=Moderate
+2026-03-10 20:13:34 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(106).jpg
+2026-03-10 20:13:34 | INFO | analysis_service | Analysis completed for image=Healthy(106).jpg | prediction=Diseased | confidence=0.7573 | severity=Moderate
+2026-03-10 20:13:34 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(107).jpg
+2026-03-10 20:13:34 | INFO | analysis_service | Analysis completed for image=Healthy(107).jpg | prediction=Diseased | confidence=0.7453 | severity=Moderate
+2026-03-10 20:13:35 | INFO | batch_service | Batch analysis completed | run_id=run_2026_03_10_20_13_30_ab28f7 | success=10 | failed=0

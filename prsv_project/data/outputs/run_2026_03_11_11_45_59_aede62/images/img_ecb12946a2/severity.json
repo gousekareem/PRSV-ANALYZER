@@ -1,0 +1,16 @@
+{
+  "image_id": "img_ecb12946a2",
+  "infection_percentage": 40.9526,
+  "severity_score": 40.9526,
+  "severity_label": "Moderate",
+  "severity_confidence": 50.7451,
+  "symptom_region_ratio": 0.027649,
+  "reasoning_trace": {
+    "inverse_green_ratio": 0.551682,
+    "edge_density": 0.253723,
+    "entropy": 0.918725,
+    "abnormal_color_score": 0.256604,
+    "symptom_region_ratio": 0.027649,
+    "formula_mode": "weighted_image_processing_based"
+  }
+}

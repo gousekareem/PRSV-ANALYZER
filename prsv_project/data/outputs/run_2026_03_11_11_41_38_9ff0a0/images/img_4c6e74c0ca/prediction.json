@@ -1,0 +1,20 @@
+{
+  "image_id": "img_4c6e74c0ca",
+  "filename": "RingSpot_99_.jpg",
+  "prediction": "Healthy",
+  "confidence": 0.5985,
+  "probabilities": {
+    "Healthy": 0.5985,
+    "Diseased": 0.4015
+  },
+  "inference_mode": "heuristic_fallback",
+  "feature_vector_used": [
+    0.525125,
+    0.437583,
+    0.202469,
+    0.688891,
+    0.059448,
+    0.042134,
+    0.801978
+  ]
+}

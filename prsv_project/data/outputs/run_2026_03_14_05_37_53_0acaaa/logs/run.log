@@ -1,0 +1,4 @@
+2026-03-14 05:37:53 | INFO | batch_service | Batch analysis started. Total input images: 3
+2026-03-14 05:37:54 | INFO | batch_service | Batch analysis completed | run_id=run_2026_03_14_05_37_53_0acaaa | success=3 | failed=0
+2026-03-14 05:41:15 | INFO | batch_service | Batch analysis started. Total input images: 20
+2026-03-14 05:41:24 | INFO | batch_service | Batch analysis completed | run_id=run_2026_03_14_05_41_15_645dea | success=20 | failed=0

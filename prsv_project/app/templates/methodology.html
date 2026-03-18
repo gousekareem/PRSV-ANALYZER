@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Methodology | PRSV Research Diagnostic System{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Methodology</h2>
+
+    <div class="card">
+        <h3>Research Objective</h3>
+        <p>
+            This system is designed to detect Papaya Ring Spot Virus from papaya leaf images using a research-grade
+            image processing pipeline supported by handcrafted feature engineering, SVM classification,
+            severity estimation, heatmap-based explainability, and local RAG-grounded explanation generation.
+        </p>
+    </div>
+
+    <div class="card-row">
+        <div class="card">
+            <h3>1. Image Acquisition</h3>
+            <p>Supports demo dataset mode, single upload, multiple upload, and ZIP batch upload with validation and Windows-safe storage.</p>
+        </div>
+
+        <div class="card">
+            <h3>2. Preprocessing</h3>
+            <p>Performs resize, normalization, grayscale conversion, HSV conversion, denoising, and contrast enhancement.</p>
+        </div>
+
+        <div class="card">
+            <h3>3. Segmentation</h3>
+            <p>Uses classical image processing for leaf isolation through HSV thresholding, contour detection, and morphological cleanup.</p>
+        </div>
+
+        <div class="card">
+            <h3>4. Symptom Emphasis</h3>
+            <p>Generates edge maps, gradient response, Laplacian response, chlorosis emphasis, and symptom highlight overlays.</p>
+        </div>
+
+        <div class="card">
+            <h3>5. Feature Extraction</h3>
+            <p>Extracts brightness, green ratio, hue mean, saturation mean, edge density, color variance, and entropy.</p>
+        </div>
+
+        <div class="card">
+            <h3>6. Classification</h3>
+            <p>Uses an SVM classifier for Healthy vs Diseased prediction, with automatic fallback when trained artifacts are unavailable.</p>
+        </div>
+
+        <div class="card">
+            <h3>7. Severity Estimation</h3>
+            <p>Computes infection percentage and severity label using weighted image-processing evidence and symptom coverage.</p>
+        </div>
+
+        <div class="card">
+            <h3>8. Explainability</h3>
+            <p>Creates edge heatmaps and severity/symptom heatmaps for research presentation and visual evidence.</p>
+        </div>
+
+        <div class="card">
+            <h3>9. RAG Reasoning</h3>
+            <p>Builds a retrieval query from image findings, retrieves PRSV knowledge chunks using TF-IDF similarity, and generates grounded explanation.</p>
+        </div>
+
+        <div class="card">
+            <h3>10. Reporting</h3>
+            <p>Stores per-image JSON traces, visual artifacts, batch summary CSV/JSON, and downloadable run bundles for demos and papers.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Severity Logic</h3>
+        <p>
+            Severity is estimated using inverse green ratio, edge density, entropy, abnormal color score, and symptom region ratio.
+            The result is converted into infection percentage and mapped to a research-friendly severity scale.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Future Extensions</h3>
+        <p>
+            This architecture is designed for future integration with CNN classifiers, multilingual farmer guidance, aphid detection,
+            IoT-connected field analytics, mobile deployment, and full cloud-based agriculture decision systems.
+        </p>
+    </div>
+</section>
+{% endblock %}

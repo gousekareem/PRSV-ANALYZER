@@ -1,0 +1,11 @@
+{
+  "observation_query": "Image uploaded for PRSV analysis. Detailed visual query will be generated after image-processing integration.",
+  "retrieved_evidence": [
+    {
+      "chunk_id": "placeholder_001",
+      "title": "PRSV visual symptom reference",
+      "text": "This is a placeholder evidence record. The next module batch will connect the local PRSV knowledge base and retrieval engine.",
+      "similarity_score": 0.0
+    }
+  ]
+}

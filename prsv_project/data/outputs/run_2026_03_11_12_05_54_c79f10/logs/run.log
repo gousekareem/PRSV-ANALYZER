@@ -1,0 +1,8 @@
+2026-03-11 12:05:54 | INFO | batch_service | Batch analysis started. Total input images: 3
+2026-03-11 12:05:54 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(1).jpg
+2026-03-11 12:05:55 | INFO | analysis_service | Analysis completed for image=Healthy(1).jpg | prediction=Diseased | confidence=0.7600 | severity=Moderate | quality=good | segmentation=good
+2026-03-11 12:05:55 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(10).jpg
+2026-03-11 12:05:55 | INFO | analysis_service | Analysis completed for image=Healthy(10).jpg | prediction=Diseased | confidence=0.7584 | severity=Moderate | quality=good | segmentation=good
+2026-03-11 12:05:55 | INFO | analysis_service | Starting analysis for image: D:\PRSV PROJECT\original images\Healthy(100).jpg
+2026-03-11 12:05:56 | INFO | analysis_service | Analysis completed for image=Healthy(100).jpg | prediction=Diseased | confidence=0.7610 | severity=Moderate | quality=good | segmentation=good
+2026-03-11 12:05:56 | INFO | batch_service | Batch analysis completed | run_id=run_2026_03_11_12_05_54_c79f10 | success=3 | failed=0

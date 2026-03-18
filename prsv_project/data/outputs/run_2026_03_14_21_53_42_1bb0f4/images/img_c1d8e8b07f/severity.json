@@ -1,0 +1,16 @@
+{
+  "image_id": "img_c1d8e8b07f",
+  "infection_percentage": 41.2507,
+  "severity_score": 41.2507,
+  "severity_label": "Moderate",
+  "severity_confidence": 48.7384,
+  "symptom_region_ratio": 0.021636,
+  "reasoning_trace": {
+    "inverse_green_ratio": 0.643884,
+    "edge_density": 0.182467,
+    "entropy": 0.86455,
+    "abnormal_color_score": 0.249602,
+    "symptom_region_ratio": 0.021636,
+    "formula_mode": "weighted_image_processing_based"
+  }
+}

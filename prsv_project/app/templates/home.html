@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Home{% endblock %}
+
+{% block content %}
+<section class="hero-panel">
+    <div class="stack">
+        <div>
+            <span class="badge badge-success">Product Workspace</span>
+            <h2 class="page-title" style="margin-top: 12px;">Premium papaya leaf analysis, built like a real product.</h2>
+            <p class="page-desc">
+                Upload papaya leaf images, run intelligent analysis, review evidence-backed results,
+                and manage previous runs through a clean product dashboard.
+            </p>
+        </div>
+
+        <div class="inline-actions">
+            <a class="btn" href="/analyze">Start Analysis</a>
+            <a class="btn-secondary" href="/results">View Runs</a>
+            <a class="btn-ghost" href="/status">Check System Status</a>
+        </div>
+    </div>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Quick Actions</h3>
+            <p class="section-subtitle">Launch the main workflows directly from the home workspace.</p>
+        </div>
+    </div>
+
+    <div class="grid-4">
+        <div class="card">
+            <h3>Analyze Leaf</h3>
+            <p class="helper-text">Run single-image papaya leaf analysis with detailed result pages.</p>
+            <div class="inline-actions">
+                <a class="btn" href="/analyze">Open</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Batch Analysis</h3>
+            <p class="helper-text">Upload multiple images or ZIP archives for full batch processing.</p>
+            <div class="inline-actions">
+                <a class="btn-secondary" href="/analyze">Open</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Recent Runs</h3>
+            <p class="helper-text">Browse completed runs, results dashboards, and exported bundles.</p>
+            <div class="inline-actions">
+                <a class="btn-secondary" href="/results">Open</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>System Status</h3>
+            <p class="helper-text">Check model, dataset, and knowledge-base readiness from a clean status page.</p>
+            <div class="inline-actions">
+                <a class="btn-ghost" href="/status">Open</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Recent Runs</h3>
+            <p class="section-subtitle">Your latest completed analyses appear here for quick reopening.</p>
+        </div>
+        <div class="inline-actions">
+            <a class="btn-ghost" href="/results">View All Runs</a>
+        </div>
+    </div>
+
+    {% if recent_runs %}
+    <div class="grid-3">
+        {% for run in recent_runs %}
+        <article class="card">
+            <div class="stack">
+                <div class="inline-between">
+                    <span class="badge badge-neutral">Run</span>
+                    <span class="helper-text">{{ run.run_id }}</span>
+                </div>
+
+                <div>
+                    <h3 style="margin: 0 0 8px;">{{ run.run_id }}</h3>
+                    <p class="helper-text" style="margin: 0;">
+                        {{ run.processed_images or 0 }} processed · {{ run.failed_images or 0 }} failed
+                    </p>
+                </div>
+
+                <div class="mini-metrics">
+                    <div>
+                        <span class="mini-label">Healthy</span>
+                        <strong>{{ run.healthy_count or 0 }}</strong>
+                    </div>
+                    <div>
+                        <span class="mini-label">Diseased</span>
+                        <strong>{{ run.diseased_count or 0 }}</strong>
+                    </div>
+                    <div>
+                        <span class="mini-label">Avg Confidence</span>
+                        <strong>{{ run.average_confidence or 0 }}</strong>
+                    </div>
+                </div>
+
+                <div class="inline-actions">
+                    <a class="btn" href="/run/{{ run.run_id }}">Open Run</a>
+                    <a class="btn-ghost" href="/api/analysis/run/{{ run.run_id }}/download">Download</a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <section class="empty-state">
+        <h3>No recent runs yet</h3>
+        <p>Your completed analyses will appear here once you start using PRSV ANALYZER.</p>
+        <a class="btn" href="/analyze">Start First Analysis</a>
+    </section>
+    {% endif %}
+</section>
+{% endblock %}

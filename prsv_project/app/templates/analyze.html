@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Analyze{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">Analyze Leaf</h2>
+        <p class="page-desc">
+            Choose your workflow and launch analysis through the product dashboard.
+        </p>
+    </div>
+</section>
+
+{% if message %}
+<section style="margin-bottom: 18px;">
+    <div class="alert {% if level == 'error' %}alert-error{% elif level == 'warning' %}alert-warning{% elif level == 'success' %}alert-success{% else %}alert-info{% endif %}">
+        <div class="alert-title">
+            {% if level == "error" %}
+                Error
+            {% elif level == "warning" %}
+                Warning
+            {% elif level == "success" %}
+                Success
+            {% else %}
+                Notice
+            {% endif %}
+        </div>
+        <p class="alert-text">{{ message }}</p>
+    </div>
+</section>
+{% endif %}
+
+<section class="grid-2">
+    <div class="card">
+        <h3>Single Image</h3>
+        <p class="helper-text">Upload one papaya leaf image and open a dedicated result page.</p>
+        <form action="/analyze/single" method="post" enctype="multipart/form-data" class="stack" data-analysis-form="true" data-analysis-mode="single">
+            <div>
+                <label for="single-file">Leaf Image</label>
+                <input id="single-file" type="file" name="file" accept=".jpg,.jpeg,.png,.bmp,.webp" required>
+            </div>
+            <button class="btn" type="submit">Analyze Leaf</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Multiple Images</h3>
+        <p class="helper-text">Upload several images and open the batch run dashboard after processing.</p>
+        <form action="/analyze/multiple" method="post" enctype="multipart/form-data" class="stack" data-analysis-form="true" data-analysis-mode="batch">
+            <div>
+                <label for="multi-files">Leaf Images</label>
+                <input id="multi-files" type="file" name="files" accept=".jpg,.jpeg,.png,.bmp,.webp" multiple required>
+            </div>
+            <button class="btn-secondary" type="submit">Run Batch Analysis</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>ZIP Archive</h3>
+        <p class="helper-text">Upload a ZIP file and open a polished batch dashboard after analysis.</p>
+        <form action="/analyze/zip" method="post" enctype="multipart/form-data" class="stack" data-analysis-form="true" data-analysis-mode="zip">
+            <div>
+                <label for="zip-file">ZIP File</label>
+                <input id="zip-file" type="file" name="file" accept=".zip" required>
+            </div>
+            <button class="btn-secondary" type="submit">Upload ZIP Archive</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Demo Dataset</h3>
+        <p class="helper-text">
+            Launch a demo batch run from built-in dataset images.
+            {% if demo_dataset_exists %}
+                <span class="badge badge-success">Available</span>
+            {% else %}
+                <span class="badge badge-warning">Unavailable</span>
+            {% endif %}
+        </p>
+        <form action="/analyze/demo" method="post" class="stack" data-analysis-form="true" data-analysis-mode="demo">
+            <div>
+                <label for="demo-limit">Number of demo images</label>
+                <input id="demo-limit" type="number" name="limit" min="1" max="200" value="10">
+            </div>
+            <button class="btn-ghost" type="submit">Try Demo Images</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

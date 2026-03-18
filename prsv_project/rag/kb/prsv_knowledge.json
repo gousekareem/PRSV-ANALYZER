@@ -1,0 +1,86 @@
+{
+  "project": "Papaya Ring Spot Virus Knowledge Base",
+  "version": "1.0",
+  "chunks": [
+    {
+      "chunk_id": "prsv_001",
+      "title": "PRSV overview",
+      "category": "disease_description",
+      "audience": "technical",
+      "text": "Papaya Ring Spot Virus is a major viral disease affecting papaya plants. It can reduce yield, weaken plant vigor, and cause visible leaf and fruit symptoms that intensify over time.",
+      "tags": ["prsv", "papaya", "virus", "overview"]
+    },
+    {
+      "chunk_id": "prsv_002",
+      "title": "Leaf symptom pattern",
+      "category": "symptoms",
+      "audience": "technical",
+      "text": "Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue.",
+      "tags": ["leaf symptoms", "mosaic", "chlorosis", "mottling"]
+    },
+    {
+      "chunk_id": "prsv_003",
+      "title": "Chlorosis interpretation",
+      "category": "symptom_interpretation",
+      "audience": "technical",
+      "text": "Reduced green intensity and chlorotic appearance can indicate stress or viral symptom development. In papaya leaves, abnormal yellowish regions may support suspicion of PRSV-related damage.",
+      "tags": ["chlorosis", "green loss", "yellowing"]
+    },
+    {
+      "chunk_id": "prsv_004",
+      "title": "Texture and irregularity",
+      "category": "symptom_interpretation",
+      "audience": "technical",
+      "text": "Higher texture irregularity, edge-rich damaged regions, and visually inconsistent patches can correspond to symptomatic leaf areas. These patterns are useful for image-based disease interpretation.",
+      "tags": ["texture", "edge", "irregularity", "image processing"]
+    },
+    {
+      "chunk_id": "prsv_005",
+      "title": "Severity progression",
+      "category": "severity",
+      "audience": "technical",
+      "text": "As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+      "tags": ["severity", "progression", "symptom area"]
+    },
+    {
+      "chunk_id": "prsv_006",
+      "title": "Vector spread note",
+      "category": "transmission",
+      "audience": "farmer",
+      "text": "PRSV can spread through aphid vectors. If one plant shows suspicious symptoms, nearby plants should also be checked so that spread risk can be reduced early.",
+      "tags": ["aphid", "spread", "transmission", "field check"]
+    },
+    {
+      "chunk_id": "prsv_007",
+      "title": "Field advisory",
+      "category": "management",
+      "audience": "farmer",
+      "text": "When papaya leaves show suspicious disease symptoms, monitor nearby plants, remove heavily affected material carefully when advised locally, and seek agronomy verification before large-scale action.",
+      "tags": ["management", "field advisory", "inspection"]
+    },
+    {
+      "chunk_id": "prsv_008",
+      "title": "Research interpretation note",
+      "category": "explanation_support",
+      "audience": "technical",
+      "text": "A research-oriented PRSV diagnostic system should connect image observations, feature values, severity estimation, and retrieved domain evidence to produce grounded and explainable outputs.",
+      "tags": ["research", "explainable ai", "rag", "grounded output"]
+    },
+    {
+      "chunk_id": "prsv_009",
+      "title": "Mosaic and discoloration note",
+      "category": "symptoms",
+      "audience": "technical",
+      "text": "Mosaic-like appearance and leaf discoloration are important visual indicators in PRSV analysis. Image-processing methods that measure color change and irregular structural response can help support diagnosis.",
+      "tags": ["mosaic", "discoloration", "visual indicator"]
+    },
+    {
+      "chunk_id": "prsv_010",
+      "title": "Farmer-friendly response guidance",
+      "category": "management",
+      "audience": "farmer",
+      "text": "If symptoms continue spreading across several leaves, ask an agricultural expert for confirmation and keep photo records. Early observation can help reduce crop loss.",
+      "tags": ["farmer guidance", "expert verification", "photo records"]
+    }
+  ]
+}

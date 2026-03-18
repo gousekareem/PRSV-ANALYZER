@@ -1,0 +1,21 @@
+image_id,filename,prediction,confidence,infection_percentage,severity_score,severity_label
+img_f9fc970951,Healthy(1).jpg,PRSV Suspected,0.76,39.9363,39.9363,Moderate
+img_adffac85db,Healthy(10).jpg,PRSV Suspected,0.7584,39.925,39.925,Moderate
+img_7a2c4ae87d,Healthy(100).jpg,PRSV Suspected,0.761,41.3653,41.3653,Moderate
+img_94937e04c0,Healthy(101).jpg,PRSV Suspected,0.7629,42.4365,42.4365,Moderate
+img_5587d78f10,Healthy(102).jpg,PRSV Suspected,0.7448,38.945,38.945,Moderate
+img_fe3215e2c4,Healthy(103).jpg,PRSV Suspected,0.7673,43.776,43.776,Moderate
+img_883d0cee9a,Healthy(104).jpg,PRSV Suspected,0.7672,41.2561,41.2561,Moderate
+img_b62de46ae0,Healthy(105).jpg,PRSV Suspected,0.7669,41.6757,41.6757,Moderate
+img_5d124e1a0a,Healthy(106).jpg,PRSV Suspected,0.7573,43.2494,43.2494,Moderate
+img_7df1e9569d,Healthy(107).jpg,PRSV Suspected,0.7453,37.4008,37.4008,Moderate
+img_9c02ee3d88,Healthy(108).jpg,PRSV Suspected,0.7473,38.4723,38.4723,Moderate
+img_e83f05c3f8,Healthy(109).jpg,PRSV Suspected,0.7525,37.7095,37.7095,Moderate
+img_3666c6ec23,Healthy(11).jpg,PRSV Suspected,0.756,38.5179,38.5179,Moderate
+img_31ce0b2e69,Healthy(110).jpg,PRSV Suspected,0.7507,38.2026,38.2026,Moderate
+img_8f489d7d94,Healthy(111).jpg,PRSV Suspected,0.7581,39.8459,39.8459,Moderate
+img_005620ca69,Healthy(112).jpg,PRSV Suspected,0.762,39.11,39.11,Moderate
+img_d3004da7e2,Healthy(113).jpg,PRSV Suspected,0.76,40.4295,40.4295,Moderate
+img_a08517f65c,Healthy(114).jpg,PRSV Suspected,0.7512,39.5079,39.5079,Moderate
+img_3a14c08c2f,Healthy(115).jpg,PRSV Suspected,0.7553,39.241,39.241,Moderate
+img_e2d259db6a,Healthy(116).jpg,PRSV Suspected,0.7695,41.5188,41.5188,Moderate

@@ -1,0 +1,12 @@
+{
+  "observation_query": "Papaya leaf analysis with class=Healthy, severity=Mild to moderate, green_ratio=0.7982, edge_density=0.0000, entropy=0.0000, saturation_mean=0.8902.",
+  "retrieved_evidence": [
+    {
+      "chunk_id": "local_placeholder_prsv_001",
+      "title": "PRSV symptom interpretation placeholder",
+      "text": "Retrieved evidence will be populated by the local TF-IDF PRSV knowledge retriever in the next step. This trace already preserves the final contract structure.",
+      "similarity_score": 0.0
+    }
+  ],
+  "status": "placeholder_until_rag_integration"
+}

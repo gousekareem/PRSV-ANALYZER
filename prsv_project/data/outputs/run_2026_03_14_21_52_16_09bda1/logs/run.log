@@ -1,0 +1,2 @@
+2026-03-14 21:52:16 | INFO | analysis_service | Starting analysis for image: D:\Temp\pytest-of-Shaik Gouse Kareem\pytest-23\test_analysis_service_generate0\sample_leaf.jpg
+2026-03-14 21:52:17 | INFO | analysis_service | Analysis completed for image=sample_leaf.jpg | prediction=Healthy | confidence=0.7525 | severity=Mild to moderate | quality=poor | segmentation=good

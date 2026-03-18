@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Run {{ run_id }}{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">Run Dashboard</h2>
+        <p class="page-desc">
+            Review PRSV-oriented run summary, image-level results, severity distribution, and available exports.
+        </p>
+    </div>
+    <div class="inline-actions">
+        <a class="btn-ghost" href="/results">Back to Runs</a>
+        <a class="btn" href="/api/analysis/run/{{ run_id }}/download">Download Run Bundle</a>
+    </div>
+</section>
+
+<section class="grid-4">
+    <article class="metric-card">
+        <span class="mini-label">Total Images</span>
+        <h3 class="metric-value">{{ summary.total_images }}</h3>
+        <p class="helper-text">Files included in this run</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Healthy</span>
+        <h3 class="metric-value">{{ summary.healthy_count }}</h3>
+        <p class="helper-text">No strong PRSV-like symptom evidence</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">PRSV Suspected</span>
+        <h3 class="metric-value">{{ summary.diseased_count }}</h3>
+        <p class="helper-text">PRSV-like symptom evidence detected</p>
+    </article>
+
+    <article class="metric-card">
+        <span class="mini-label">Avg Confidence</span>
+        <h3 class="metric-value">{{ summary.average_confidence }}</h3>
+        <p class="helper-text">Average run confidence</p>
+    </article>
+</section>
+
+<section class="grid-3" style="margin-top: 18px;">
+    <article class="card">
+        <h3>Run Summary</h3>
+        <ul class="plain-list">
+            <li><strong>Run ID:</strong> {{ run_id }}</li>
+            <li><strong>Processed:</strong> {{ summary.processed_images }}</li>
+            <li><strong>Failed:</strong> {{ summary.failed_images }}</li>
+            <li><strong>Avg Infection %:</strong> {{ summary.average_infection_percentage }}</li>
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>Severity Distribution</h3>
+        {% if summary.severity_distribution %}
+            <ul class="plain-list">
+                {% for key, value in summary.severity_distribution.items() %}
+                    <li><strong>{{ key }}:</strong> {{ value }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="helper-text">No severity distribution available.</p>
+        {% endif %}
+    </article>
+
+    <article class="card">
+        <h3>Quick Actions</h3>
+        <div class="stack">
+            <a class="btn-secondary" href="/api/analysis/run/{{ run_id }}">Open JSON Summary</a>
+            <a class="btn-ghost" href="/batch-results">Open Batch Browser</a>
+        </div>
+    </article>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Batch Insights</h3>
+            <p class="section-subtitle">Presentation-ready quick visuals for this run.</p>
+        </div>
+    </div>
+
+    <div class="grid-2">
+        <article class="card">
+            <h3>Prediction Distribution</h3>
+            <img class="result-image" src="/outputs/{{ run_id }}/charts/prediction_distribution.png" alt="Prediction distribution chart">
+        </article>
+
+        <article class="card">
+            <h3>Severity Distribution</h3>
+            <img class="result-image" src="/outputs/{{ run_id }}/charts/severity_distribution.png" alt="Severity distribution chart">
+        </article>
+    </div>
+</section>
+
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Image Results</h3>
+            <p class="section-subtitle">Open any image to review visual evidence and explanation details.</p>
+        </div>
+    </div>
+
+    {% if summary.results %}
+    <div class="card" style="margin-bottom: 14px;">
+        <div class="inline-between">
+            <div>
+                <h3 style="margin: 0 0 6px;">Result Table</h3>
+                <p class="helper-text" style="margin: 0;">Use the table below to inspect image-level outputs in this run.</p>
+            </div>
+            <span class="badge badge-neutral">{{ summary.results|length }} image result(s)</span>
+        </div>
+    </div>
+
+    <div class="card table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Image ID</th>
+                    <th>Filename</th>
+                    <th>Prediction</th>
+                    <th>Confidence</th>
+                    <th>Severity</th>
+                    <th>Infection %</th>
+                    <th>Open</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in summary.results %}
+                <tr>
+                    <td>{{ item.image_id }}</td>
+                    <td>{{ item.filename }}</td>
+                    <td>
+                        {% if item.prediction == "Healthy" %}
+                            <span class="badge badge-success">Healthy</span>
+                        {% else %}
+                            <span class="badge badge-danger">PRSV Suspected</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.confidence }}</td>
+                    <td>
+                        {% if "Severe" in item.severity_label %}
+                            <span class="badge badge-danger">{{ item.severity_label }}</span>
+                        {% elif "Moderate" in item.severity_label %}
+                            <span class="badge badge-warning">{{ item.severity_label }}</span>
+                        {% elif "Mild" in item.severity_label %}
+                            <span class="badge badge-neutral">{{ item.severity_label }}</span>
+                        {% else %}
+                            <span class="badge badge-success">{{ item.severity_label }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.infection_percentage }}</td>
+                    <td>
+                        <a class="btn-ghost" href="/run/{{ run_id }}/image/{{ item.image_id }}">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <section class="empty-state">
+        <h3>No image results available</h3>
+        <p>This run does not currently contain image-level result entries.</p>
+    </section>
+    {% endif %}
+</section>
+
+{% if summary.failures %}
+<section style="margin-top: 24px;">
+    <div class="page-header">
+        <div>
+            <h3 class="section-title">Failed Files</h3>
+            <p class="section-subtitle">Files that could not be processed successfully.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <ul class="plain-list">
+            {% for failure in summary.failures %}
+                <li><strong>{{ failure.filename }}</strong> — {{ failure.error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+image_id,filename,prediction,confidence,infection_percentage,severity_score,severity_label
+img_3dd67a9667,Healthy(1).jpg,Diseased,0.76,39.9363,39.9363,Moderate
+img_bb2e1aec6b,Healthy(10).jpg,Diseased,0.7584,39.925,39.925,Moderate
+img_bc6e3023db,Healthy(100).jpg,Diseased,0.761,41.3653,41.3653,Moderate
+img_ff439b9c5c,Healthy(101).jpg,Diseased,0.7629,42.4365,42.4365,Moderate
+img_9d16e1f657,Healthy(102).jpg,Diseased,0.7448,38.945,38.945,Moderate
+img_770d08ba79,Healthy(103).jpg,Diseased,0.7673,43.776,43.776,Moderate
+img_e55fb64a8f,Healthy(104).jpg,Diseased,0.7672,41.2561,41.2561,Moderate
+img_e9f821ad0d,Healthy(105).jpg,Diseased,0.7669,41.6757,41.6757,Moderate
+img_270571bfd6,Healthy(106).jpg,Diseased,0.7573,43.2494,43.2494,Moderate
+img_41372d6e70,Healthy(107).jpg,Diseased,0.7453,37.4008,37.4008,Moderate

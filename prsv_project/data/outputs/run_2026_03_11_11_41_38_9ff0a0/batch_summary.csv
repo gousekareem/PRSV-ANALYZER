@@ -1,0 +1,4 @@
+image_id,filename,prediction,confidence,infection_percentage,severity_score,severity_label
+img_4c6e74c0ca,RingSpot_99_.jpg,Healthy,0.5985,35.6784,35.6784,Moderate
+img_c39bbc2d78,RingSpot_100_.jpg,Diseased,0.7426,38.1956,38.1956,Moderate
+img_0fae0743c4,RingSpot_101_.jpg,Diseased,0.7411,36.1002,36.1002,Moderate

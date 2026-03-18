@@ -1,0 +1,9 @@
+{
+  "image_id": "img_17d4fa90e7",
+  "filename": "Healthy_1_.jpg",
+  "prediction": "PendingFullPipeline",
+  "confidence": 0.0,
+  "infection_percentage": 0.0,
+  "severity_score": 0.0,
+  "severity_label": "Pending"
+}

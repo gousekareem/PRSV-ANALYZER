@@ -1,0 +1,20 @@
+{
+  "image_id": "img_c63aa330fb",
+  "filename": "Healthy(126).jpg",
+  "prediction": "Diseased",
+  "confidence": 0.7485,
+  "probabilities": {
+    "Healthy": 0.2515,
+    "Diseased": 0.7485
+  },
+  "inference_mode": "heuristic_fallback",
+  "feature_vector_used": [
+    0.52232,
+    0.381927,
+    0.377328,
+    0.302428,
+    0.168622,
+    0.033471,
+    0.890938
+  ]
+}

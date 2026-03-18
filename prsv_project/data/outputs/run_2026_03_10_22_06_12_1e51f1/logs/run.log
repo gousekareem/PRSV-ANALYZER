@@ -1,0 +1,2 @@
+2026-03-10 22:06:12 | INFO | batch_service | Batch analysis started. Total input images: 10
+2026-03-10 22:06:16 | INFO | batch_service | Batch analysis completed | run_id=run_2026_03_10_22_06_12_1e51f1 | success=10 | failed=0

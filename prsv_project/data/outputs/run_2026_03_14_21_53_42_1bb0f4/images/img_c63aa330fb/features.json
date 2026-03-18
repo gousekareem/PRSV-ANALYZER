@@ -1,0 +1,84 @@
+{
+  "image_id": "img_c63aa330fb",
+  "filename": "Healthy(126).jpg",
+  "feature_vector": [
+    0.52232,
+    0.381927,
+    0.377328,
+    0.302428,
+    0.168622,
+    0.033471,
+    0.890938
+  ],
+  "feature_values": {
+    "brightness": 0.52232,
+    "green_ratio": 0.381927,
+    "hue_mean": 0.377328,
+    "saturation_mean": 0.302428,
+    "edge_density": 0.168622,
+    "color_variance": 0.033471,
+    "entropy": 0.890938
+  },
+  "diagnostics": {
+    "masked_gray_pixels": 15431.0,
+    "masked_rgb_pixels": 15431.0,
+    "nonzero_edge_pixels": 2602.0
+  },
+  "preprocess_metadata": {
+    "original_shape": [
+      480,
+      640,
+      3
+    ],
+    "resized_shape": [
+      128,
+      128,
+      3
+    ],
+    "grayscale_shape": [
+      128,
+      128
+    ],
+    "hsv_shape": [
+      128,
+      128,
+      3
+    ],
+    "normalized_min": 0.007843137718737125,
+    "normalized_max": 0.9882352948188782
+  },
+  "quality_assessment": {
+    "quality_status": "good",
+    "warnings": [],
+    "metrics": {
+      "blur_score": 698.7646,
+      "brightness_score": 133.2168,
+      "contrast_score": 40.6893,
+      "width": 640.0,
+      "height": 480.0
+    },
+    "is_small_image": false
+  },
+  "segmentation": {
+    "leaf_area_ratio": 0.94183349609375,
+    "contour_count": 1,
+    "used_fallback": false,
+    "success": true,
+    "quality_status": "good",
+    "quality_score": 85.0,
+    "quality_warnings": [
+      "Segmented region occupies most of the image and may include background."
+    ],
+    "quality_metrics": {
+      "quality_score": 85.0,
+      "leaf_coverage_ratio": 0.941833,
+      "contour_count": 1.0,
+      "largest_contour_ratio": 0.926453,
+      "mask_fill_ratio": 0.941833
+    }
+  },
+  "symptom_analysis": {
+    "abnormal_color_score": 0.3197698546724762,
+    "symptom_region_ratio": 0.0267
+  }
+}
