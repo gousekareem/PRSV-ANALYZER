@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+prsv_project/data/outputs/*
+!prsv_project/data/outputs/.gitkeep
+prsv_project/data/uploads/*
+!prsv_project/data/uploads/.gitkeep
+prsv_project/data/logs/*
+!prsv_project/data/logs/.gitkeep
+prsv_project/data/temp/*
+!prsv_project/data/temp/.gitkeep
+prsv_project/data/processed/*
+!prsv_project/data/processed/.gitkeep
+prsv_project/data/extracted/*
+!prsv_project/data/extracted/.gitkeep
+prsv_project/data/*.sqlite3
+.venv/
+
+# Raw dataset - large binary files, not meant for git history. DVC tracks
+# the derived training_features.csv and models/ instead (see docs/DVC_SETUP.md).
+Original Images/

@@ -1,0 +1,380 @@
+{
+  "project": "Papaya Ring Spot Virus Knowledge Base",
+  "version": "2.9",
+  "chunks": [
+    {
+      "chunk_id": "prsv_001",
+      "title": "PRSV overview",
+      "category": "disease_description",
+      "audience": "technical",
+      "text": "Papaya Ring Spot Virus is a major viral disease affecting papaya plants. It can reduce yield, weaken plant vigor, and cause visible leaf and fruit symptoms that intensify over time.",
+      "tags": [
+        "prsv",
+        "papaya",
+        "virus",
+        "overview"
+      ]
+    },
+    {
+      "chunk_id": "prsv_002",
+      "title": "Leaf symptom pattern",
+      "category": "symptoms",
+      "audience": "technical",
+      "text": "Common PRSV leaf symptoms include mosaic patterns, chlorosis, mottling, distortion, and irregular texture changes. Diseased leaves may show visually abnormal regions compared to healthy green tissue.",
+      "tags": [
+        "leaf symptoms",
+        "mosaic",
+        "chlorosis",
+        "mottling"
+      ]
+    },
+    {
+      "chunk_id": "prsv_003",
+      "title": "Chlorosis interpretation",
+      "category": "symptom_interpretation",
+      "audience": "technical",
+      "text": "Reduced green intensity and chlorotic appearance can indicate stress or viral symptom development. In papaya leaves, abnormal yellowish regions may support suspicion of PRSV-related damage.",
+      "tags": [
+        "chlorosis",
+        "green loss",
+        "yellowing"
+      ]
+    },
+    {
+      "chunk_id": "prsv_004",
+      "title": "Texture and irregularity",
+      "category": "symptom_interpretation",
+      "audience": "technical",
+      "text": "Higher texture irregularity, edge-rich damaged regions, and visually inconsistent patches can correspond to symptomatic leaf areas. These patterns are useful for image-based disease interpretation.",
+      "tags": [
+        "texture",
+        "edge",
+        "irregularity",
+        "image processing"
+      ]
+    },
+    {
+      "chunk_id": "prsv_005",
+      "title": "Severity progression",
+      "category": "severity",
+      "audience": "technical",
+      "text": "As disease severity increases, symptomatic area coverage, discoloration, and visual irregularity often become more prominent. Moderate and severe stages may require rapid field intervention.",
+      "tags": [
+        "severity",
+        "progression",
+        "symptom area"
+      ]
+    },
+    {
+      "chunk_id": "prsv_006",
+      "title": "Vector spread note",
+      "category": "transmission",
+      "audience": "farmer",
+      "text": "PRSV can spread through aphid vectors. If one plant shows suspicious symptoms, nearby plants should also be checked so that spread risk can be reduced early.",
+      "tags": [
+        "aphid",
+        "spread",
+        "transmission",
+        "field check"
+      ]
+    },
+    {
+      "chunk_id": "prsv_007",
+      "title": "Field advisory",
+      "category": "management",
+      "audience": "farmer",
+      "text": "When papaya leaves show suspicious disease symptoms, monitor nearby plants, remove heavily affected material carefully when advised locally, and seek agronomy verification before large-scale action.",
+      "tags": [
+        "management",
+        "field advisory",
+        "inspection"
+      ]
+    },
+    {
+      "chunk_id": "prsv_008",
+      "title": "Research interpretation note",
+      "category": "explanation_support",
+      "audience": "technical",
+      "text": "A research-oriented PRSV diagnostic system should connect image observations, feature values, severity estimation, and retrieved domain evidence to produce grounded and explainable outputs.",
+      "tags": [
+        "research",
+        "explainable ai",
+        "rag",
+        "grounded output"
+      ]
+    },
+    {
+      "chunk_id": "prsv_009",
+      "title": "Mosaic and discoloration note",
+      "category": "symptoms",
+      "audience": "technical",
+      "text": "Mosaic-like appearance and leaf discoloration are important visual indicators in PRSV analysis. Image-processing methods that measure color change and irregular structural response can help support diagnosis.",
+      "tags": [
+        "mosaic",
+        "discoloration",
+        "visual indicator"
+      ]
+    },
+    {
+      "chunk_id": "prsv_010",
+      "title": "Farmer-friendly response guidance",
+      "category": "management",
+      "audience": "farmer",
+      "text": "If symptoms continue spreading across several leaves, ask an agricultural expert for confirmation and keep photo records. Early observation can help reduce crop loss.",
+      "tags": [
+        "farmer guidance",
+        "expert verification",
+        "photo records"
+      ]
+    },
+    {
+      "chunk_id": "prsv_011",
+      "title": "No cure - management only",
+      "category": "treatment",
+      "audience": "farmer",
+      "text": "There is no chemical cure that removes PRSV from an already-infected papaya plant. Management focuses on slowing spread to other plants and protecting healthy ones, not curing infected leaves.",
+      "tags": [
+        "treatment",
+        "no cure",
+        "management",
+        "expectations"
+      ]
+    },
+    {
+      "chunk_id": "prsv_012",
+      "title": "Removing infected plants",
+      "category": "treatment",
+      "audience": "farmer",
+      "text": "For severely infected plants, removing and destroying the whole plant (uproot and burn or bury away from the field) is often recommended to stop it acting as a source of infection for healthy plants nearby. Confirm with a local agricultural officer before removing many plants.",
+      "tags": [
+        "removal",
+        "uproot",
+        "sanitation",
+        "severe cases"
+      ]
+    },
+    {
+      "chunk_id": "prsv_013",
+      "title": "Aphid vector control",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "Since PRSV commonly spreads through aphids, controlling aphid populations with recommended insecticides or reflective mulches can reduce new infections. Aphids do not need to colonize the plant to transmit the virus, so vector control alone will not stop all spread, but it helps.",
+      "tags": [
+        "aphid",
+        "vector control",
+        "prevention",
+        "mulch"
+      ]
+    },
+    {
+      "chunk_id": "prsv_014",
+      "title": "Planting distance from infected fields",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "New papaya plantings placed far from existing infected fields tend to stay healthy longer, since aphids usually spread the virus over short distances. Avoid planting new papaya seedlings right next to a field with known PRSV history.",
+      "tags": [
+        "planting distance",
+        "prevention",
+        "new plantings"
+      ]
+    },
+    {
+      "chunk_id": "prsv_015",
+      "title": "Barrier crops",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "Planting tall barrier crops such as maize or sorghum around a papaya field can reduce the number of aphids that reach the papaya plants and lower infection rates, though it will not eliminate spread entirely.",
+      "tags": [
+        "barrier crop",
+        "maize",
+        "prevention",
+        "field layout"
+      ]
+    },
+    {
+      "chunk_id": "prsv_016",
+      "title": "Tool and equipment sanitation",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "Clean cutting tools and hands after working with a suspected infected plant before touching healthy plants, since sap contact can also spread the virus mechanically in addition to aphid transmission.",
+      "tags": [
+        "sanitation",
+        "tools",
+        "sap transmission"
+      ]
+    },
+    {
+      "chunk_id": "prsv_017",
+      "title": "Nursery and seedling care",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "Raise papaya seedlings in a nursery covered with insect-proof netting where possible, since young seedlings are especially vulnerable to early infection. Only transplant seedlings that look healthy and vigorous.",
+      "tags": [
+        "nursery",
+        "seedlings",
+        "netting",
+        "young plants"
+      ]
+    },
+    {
+      "chunk_id": "prsv_018",
+      "title": "When to consult an agricultural officer",
+      "category": "advisory",
+      "audience": "farmer",
+      "text": "Consult your local agricultural extension officer if: several plants show similar symptoms at once, the severity keeps increasing week over week, you are unsure whether to remove a plant, or you want confirmation before making a costly decision like clearing a field.",
+      "tags": [
+        "extension officer",
+        "when to consult",
+        "escalation"
+      ]
+    },
+    {
+      "chunk_id": "prsv_019",
+      "title": "Photo quality tips for better diagnosis",
+      "category": "tool_usage",
+      "audience": "farmer",
+      "text": "For the most reliable photo-based check, take the picture in daylight, hold the camera close enough that the leaf fills most of the frame, avoid heavy shadows, and photograph a leaf that shows the suspected symptoms clearly rather than a healthy-looking leaf on the same plant.",
+      "tags": [
+        "photo tips",
+        "how to use",
+        "image quality"
+      ]
+    },
+    {
+      "chunk_id": "prsv_020",
+      "title": "What severity means",
+      "category": "tool_usage",
+      "audience": "farmer",
+      "text": "The severity score estimates how much of the photographed leaf shows disease-like symptoms, from very mild to severe. It is calculated from the image itself, not confirmed by a lab test, so treat it as a helpful guide rather than a certain diagnosis.",
+      "tags": [
+        "severity",
+        "how to use",
+        "interpretation"
+      ]
+    },
+    {
+      "chunk_id": "prsv_021",
+      "title": "This tool is not a lab diagnosis",
+      "category": "tool_usage",
+      "audience": "farmer",
+      "text": "This system gives an automated first impression based on a photo of the leaf. It is not a replacement for a laboratory test (such as ELISA or PCR) or an in-person visit from an agricultural expert, especially for high-value decisions like clearing a field.",
+      "tags": [
+        "disclaimer",
+        "lab test",
+        "limitations"
+      ]
+    },
+    {
+      "chunk_id": "prsv_022",
+      "title": "Resistant and tolerant papaya varieties",
+      "category": "prevention",
+      "audience": "farmer",
+      "text": "Some papaya varieties show more tolerance to PRSV than others. Ask your local agricultural extension office which locally available varieties have shown better tolerance in your region before your next planting cycle.",
+      "tags": [
+        "resistant varieties",
+        "tolerant varieties",
+        "planting choice"
+      ]
+    },
+    {
+      "chunk_id": "prsv_023",
+      "title": "Yield and economic impact",
+      "category": "impact",
+      "audience": "farmer",
+      "text": "PRSV can significantly reduce fruit yield and quality, and severely infected plants may stop producing marketable fruit altogether. Early detection and management reduces economic loss compared to letting the disease spread unchecked through a field.",
+      "tags": [
+        "yield loss",
+        "economic impact",
+        "early detection"
+      ]
+    },
+    {
+      "chunk_id": "prsv_024",
+      "title": "Weather and disease progression",
+      "category": "symptoms",
+      "audience": "farmer",
+      "text": "Symptom severity can appear to change with weather and plant stress - hot, dry stress can make some symptoms more visible, while symptoms may look less obvious on very young new growth. Re-check a plant over a few weeks rather than relying on a single observation.",
+      "tags": [
+        "weather",
+        "monitoring",
+        "progression"
+      ]
+    },
+    {
+      "chunk_id": "prsv_025",
+      "title": "Recording and tracking observations",
+      "category": "tool_usage",
+      "audience": "farmer",
+      "text": "Keep photos and dates of suspected plants over time. Comparing a plant's condition week to week is often more useful than a single photo, and this record is also useful evidence if you need to consult an agricultural officer later.",
+      "tags": [
+        "record keeping",
+        "tracking",
+        "monitoring"
+      ]
+    },
+    {
+      "chunk_id": "prsv_026",
+      "title": "Using the chatbot for a quick check",
+      "category": "tool_usage",
+      "audience": "farmer",
+      "text": "You can type a question in your own language, speak it using the microphone button, or attach a leaf photo directly in the chat to get a spoken and written explanation of the result. The chatbot uses the same analysis as the main upload page.",
+      "tags": [
+        "chatbot",
+        "voice",
+        "how to use",
+        "photo upload"
+      ]
+    },
+    {
+      "chunk_id": "prsv_027",
+      "title": "Crop insurance and government support",
+      "category": "schemes",
+      "audience": "farmer",
+      "text": "Farmers facing significant crop loss from plant disease may be eligible for support through government crop insurance or agricultural relief schemes. Contact your local agricultural office or Krishi Vigyan Kendra for information on schemes currently available in your area, as programs and eligibility change over time.",
+      "tags": [
+        "government scheme",
+        "crop insurance",
+        "support",
+        "krishi vigyan kendra"
+      ]
+    },
+    {
+      "chunk_id": "prsv_028",
+      "title": "General papaya plant health",
+      "category": "general_care",
+      "audience": "farmer",
+      "text": "Healthy, well-watered, well-fertilized papaya plants tend to better withstand disease pressure. Avoid waterlogging around the root zone, and maintain balanced fertilization based on local soil recommendations.",
+      "tags": [
+        "plant health",
+        "watering",
+        "fertilization",
+        "general care"
+      ]
+    },
+    {
+      "chunk_id": "prsv_029",
+      "title": "Difference between PRSV and nutrient deficiency",
+      "category": "symptom_interpretation",
+      "audience": "farmer",
+      "text": "Yellowing leaves are not always PRSV - nutrient deficiencies (like nitrogen or magnesium shortage) can also cause yellowing, usually in a more uniform pattern rather than the ring-spot or mosaic pattern typical of PRSV. If unsure, a photo-based check plus an in-person look can help tell them apart.",
+      "tags": [
+        "nutrient deficiency",
+        "differential",
+        "yellowing",
+        "confusion"
+      ]
+    },
+    {
+      "chunk_id": "prsv_030",
+      "title": "Greeting and general help",
+      "category": "chat_faq",
+      "audience": "farmer",
+      "text": "Hello, I can help you check a papaya leaf photo for signs of Ring Spot Virus, explain what a result means, and share tips on prevention and management. You can type, speak, or send a photo.",
+      "tags": [
+        "greeting",
+        "help",
+        "introduction"
+      ]
+    }
+  ]
+}

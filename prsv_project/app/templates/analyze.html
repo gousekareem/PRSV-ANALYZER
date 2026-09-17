@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}PRSV ANALYZER | Analyze{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div>
+        <h2 class="page-title">Analyze Leaf</h2>
+        <p class="page-desc">
+            Choose your workflow and launch analysis through the product dashboard. Drag and drop images, or use your
+            phone's camera directly on the single-image workflow.
+        </p>
+    </div>
+</section>
+
+{% if message %}
+<section style="margin-bottom: 18px;">
+    <div class="alert {% if level == 'error' %}alert-error{% elif level == 'warning' %}alert-warning{% elif level == 'success' %}alert-success{% else %}alert-info{% endif %}">
+        <div class="alert-title">
+            {% if level == "error" %}
+                Error
+            {% elif level == "warning" %}
+                Warning
+            {% elif level == "success" %}
+                Success
+            {% else %}
+                Notice
+            {% endif %}
+        </div>
+        <p class="alert-text">{{ message }}</p>
+    </div>
+</section>
+{% endif %}
+
+<section class="grid-2">
+    <div class="card">
+        <h3>Single Image</h3>
+        <p class="helper-text">Upload one papaya leaf image and open a dedicated result page. On a phone, this opens
+            your camera directly.</p>
+        <form id="single-upload-form" action="/analyze/single" method="post" enctype="multipart/form-data" class="stack">
+            <div id="single-dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop a leaf photo">
+                <div class="dropzone-icon" aria-hidden="true">📷</div>
+                <strong>Tap to choose a photo, or drag & drop</strong>
+                <p class="dropzone-hint">JPG, PNG, BMP, WEBP · up to 25MB</p>
+            </div>
+            <input id="single-file-input" type="file" name="file" accept=".jpg,.jpeg,.png,.bmp,.webp" capture="environment" hidden>
+            <div id="single-preview-grid" class="preview-grid"></div>
+
+            <div class="upload-progress-wrap">
+                <div class="upload-progress-track">
+                    <div class="upload-progress-fill"></div>
+                </div>
+                <p class="upload-progress-label"></p>
+            </div>
+
+            <button class="btn" type="submit">Analyze Leaf</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Multiple Images</h3>
+        <p class="helper-text">Upload several images and open the batch run dashboard after processing. Runs in the
+            background so this page stays responsive.</p>
+        <form id="multi-upload-form" class="stack">
+            <div id="multi-dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop leaf photos">
+                <div class="dropzone-icon" aria-hidden="true">🗂️</div>
+                <strong>Tap to choose photos, or drag & drop several</strong>
+                <p class="dropzone-hint">JPG, PNG, BMP, WEBP · up to 25MB each</p>
+            </div>
+            <input id="multi-file-input" type="file" name="files" accept=".jpg,.jpeg,.png,.bmp,.webp" multiple hidden>
+            <div id="multi-preview-grid" class="preview-grid"></div>
+
+            <div class="upload-progress-wrap">
+                <div class="upload-progress-track">
+                    <div class="upload-progress-fill"></div>
+                </div>
+                <p class="upload-progress-label"></p>
+            </div>
+
+            <button class="btn-secondary" type="submit">Run Batch Analysis</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>ZIP Archive</h3>
+        <p class="helper-text">Upload a ZIP file and open a polished batch dashboard after analysis.</p>
+        <form id="zip-upload-form" class="stack">
+            <div>
+                <label for="zip-file-input">ZIP File</label>
+                <input id="zip-file-input" type="file" name="file" accept=".zip" required>
+            </div>
+
+            <div class="upload-progress-wrap">
+                <div class="upload-progress-track">
+                    <div class="upload-progress-fill"></div>
+                </div>
+                <p class="upload-progress-label"></p>
+            </div>
+
+            <button class="btn-secondary" type="submit">Upload ZIP Archive</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Demo Dataset</h3>
+        <p class="helper-text">
+            Launch a demo batch run from built-in dataset images.
+            {% if demo_dataset_exists %}
+                <span class="badge badge-success">Available</span>
+            {% else %}
+                <span class="badge badge-warning">Unavailable</span>
+            {% endif %}
+        </p>
+        <form id="demo-analysis-form" class="stack">
+            <div>
+                <label for="demo-limit">Number of demo images</label>
+                <input id="demo-limit" type="number" name="limit" min="1" max="200" value="10">
+            </div>
+
+            <div class="upload-progress-wrap">
+                <div class="upload-progress-track">
+                    <div class="upload-progress-fill"></div>
+                </div>
+                <p class="upload-progress-label"></p>
+            </div>
+
+            <button class="btn-ghost" type="submit">Try Demo Images</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

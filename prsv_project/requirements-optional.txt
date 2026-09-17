@@ -1,0 +1,22 @@
+# Optional, heavier v3.0 packages. Install with:
+#   pip install -r requirements.txt -r requirements-optional.txt
+#
+# Everything in requirements.txt (including the lightweight v3.0 additions:
+# rank-bm25, lime, anthropic, redis, scipy) is enough to run the full app and
+# test suite. The packages below add the highest-quality version of two
+# specific features but are heavier installs (sentence-transformers pulls in
+# PyTorch, a multi-hundred-MB download) or need extra infra (an MLflow
+# tracking server, though a local ./mlruns folder works with no server at
+# all), so they're kept separate rather than forced on every install.
+#
+# Without these installed:
+# - rag/hybrid_retriever.py automatically runs BM25-only instead of
+#   BM25+dense hybrid retrieval (still a real upgrade over v2.9's TF-IDF).
+# - ml/train_ensemble.py / ml/train_svm.py still run and log metrics to
+#   stdout/JSON; mlops/experiment_tracking.py's calls become no-ops.
+
+sentence-transformers>=3.1.1
+faiss-cpu>=1.9.0
+mlflow>=2.17.0
+codecarbon>=2.7.0       # measured (not proxy-estimated) energy benchmarking in sustainability/energy_benchmark.py -
+                        # needs OS/hardware power-draw access (Intel RAPL etc.), often unavailable in sandboxed containers

@@ -1,0 +1,35 @@
+# Render Blueprint - Infrastructure as Code for PRSV Analyzer.
+#
+# How to use:
+#   1. Push this repo to GitHub (already done if you're reading this from there).
+#   2. Go to https://dashboard.render.com/blueprints -> "New Blueprint Instance"
+#   3. Connect this GitHub repo. Render auto-detects this file and creates the
+#      service below with the settings already filled in - no manual form-filling.
+#   4. Click "Apply". No credit card required for the free plan.
+#
+# Free-tier notes (see README.md "Deploying to Render" section for the full
+# picture): 512MB RAM / 0.1 CPU, no persistent disk (uploads/SQLite index/new
+# analysis runs do not survive a restart - the trained model does, since it's
+# committed to git), spins down after 15 minutes idle with ~1 minute cold
+# start on the next request. Fine for a public demo, not for production load.
+
+services:
+  - type: web
+    name: prsv-analyzer
+    runtime: python
+    plan: free
+    branch: main
+    buildCommand: cd prsv_project && pip install -r requirements.txt
+    startCommand: cd prsv_project && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: OUTPUT_RETENTION_DAYS
+        value: "30"
+      - key: RATE_LIMIT_REQUESTS
+        value: "60"
+      - key: RATE_LIMIT_WINDOW_SECONDS
+        value: "60"

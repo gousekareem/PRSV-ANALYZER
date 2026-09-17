@@ -1,0 +1,38 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.6
+jinja2>=3.1.4
+python-multipart>=0.0.9
+pydantic>=2.9.2
+pydantic-settings>=2.5.2
+
+numpy>=1.26.4
+opencv-python-headless>=4.10.0.84
+Pillow>=10.4.0
+scikit-image>=0.24.0
+scikit-learn>=1.5.2
+matplotlib>=3.9.2
+pandas>=2.2.3
+joblib>=1.4.2
+
+pytest>=8.3.3
+httpx>=0.27.2
+
+reportlab>=4.2.5
+shap>=0.46.0
+deep-translator>=1.11.4
+
+# v3.0: lightweight, always-safe-to-install extras (pure Python / small
+# wheels, no heavy ML frameworks pulled in transitively).
+scipy>=1.14.1            # McNemar's test / chi-square in evaluation/statistical_tests.py
+rank-bm25>=0.2.2         # sparse half of hybrid retrieval in rag/hybrid_retriever.py
+lime>=0.2.0.1            # tabular LIME in xai/lime_explainer.py
+anthropic>=0.39.0        # real grounded generation in rag/llm_generator.py (needs ANTHROPIC_API_KEY too)
+redis>=5.1.0             # optional cache backend in app/services/cache_service.py
+PyWavelets>=1.7.0        # wavelet texture features in image_processing/texture_extended.py
+
+# See requirements-optional.txt for the heavier v3.0 packages
+# (sentence-transformers + faiss-cpu for dense embeddings, mlflow for
+# experiment tracking) - every module that uses one of those wraps the
+# import in a try/except and degrades gracefully, so this base file alone is
+# enough to run the full test suite and the app with every v3.0 feature that
+# doesn't need a multi-hundred-MB ML framework.
