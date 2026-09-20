@@ -19,3 +19,4 @@ prsv_project/data/*.sqlite3
 # Raw dataset - large binary files, not meant for git history. DVC tracks
 # the derived training_features.csv and models/ instead (see docs/DVC_SETUP.md).
 Original Images/
+prsv_project/.env
