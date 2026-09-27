@@ -23,6 +23,28 @@
             }
         })();
     </script>
+    <style>
+        .visitor-panel {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-color, #e5eef8);
+            font-size: 0.8rem;
+            white-space: nowrap;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .visitor-panel {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -35,6 +57,12 @@
                     <p class="brand-subtitle">Papaya Leaf Disease Analysis Platform</p>
                 </div>
             </a>
+
+            <div class="visitor-panel" aria-live="polite">
+                <span>👁️ <strong id="visitor-total">0</strong> visits</span>
+                <span>•</span>
+                <span>🟢 <strong id="visitor-online">0</strong> online</span>
+            </div>
 
             <nav class="top-nav" id="top-nav" aria-label="Main navigation">
                 <a href="/">Home</a>
@@ -94,6 +122,38 @@
     </div>
 
     {% include "partials/chatbot_widget.html" %}
+
+    <script>
+        async function updateVisitorStats() {
+            try {
+                const res = await fetch('/api/visitor-stats', { cache: 'no-store' });
+                const data = await res.json();
+                const totalEl = document.getElementById('visitor-total');
+                const onlineEl = document.getElementById('visitor-online');
+                if (totalEl) totalEl.textContent = Number(data.total_visits || 0).toLocaleString();
+                if (onlineEl) onlineEl.textContent = Number(data.online_now || 0).toLocaleString();
+            } catch (err) {
+                console.warn('Visitor stats unavailable:', err);
+            }
+        }
+
+        async function trackVisit() {
+            try {
+                await fetch('/api/track-visit', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ page: window.location.pathname || '/' })
+                });
+            } catch (err) {
+                console.warn('Visit tracking failed:', err);
+            }
+        }
+
+        trackVisit();
+        updateVisitorStats();
+        setInterval(updateVisitorStats, 15000);
+    </script>
 
     <script src="/static/js/app.js"></script>
     <script src="/static/js/upload.js"></script>
