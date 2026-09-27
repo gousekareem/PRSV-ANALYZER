@@ -30,6 +30,10 @@ anthropic>=0.39.0        # real grounded generation in rag/llm_generator.py (nee
 redis>=5.1.0             # optional cache backend in app/services/cache_service.py
 PyWavelets>=1.7.0        # wavelet texture features in image_processing/texture_extended.py
 
+# Multilingual & i18n support
+babel>=2.14.0            # internationalization framework
+python-dateutil>=2.8.2   # date formatting in multiple locales
+
 # See requirements-optional.txt for the heavier v3.0 packages
 # (sentence-transformers + faiss-cpu for dense embeddings, mlflow for
 # experiment tracking) - every module that uses one of those wraps the
