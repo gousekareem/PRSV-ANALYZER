@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/static/css/chatbot.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
     <script>
-        // Applied before paint (not deferred) to avoid a flash of the wrong theme.
         (function () {
             var saved = localStorage.getItem("prsv-theme");
             if (saved === "dark") {
@@ -29,14 +28,18 @@
             align-items: center;
             gap: 8px;
             padding: 6px 10px;
-            border: 1px solid rgba(148, 163, 184, 0.3);
+            border: 1px solid var(--border);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-color, #e5eef8);
+            background: var(--surface);
+            color: var(--text);
             font-size: 0.8rem;
             white-space: nowrap;
             margin-left: auto;
             margin-right: 10px;
+        }
+
+        .visitor-panel strong {
+            color: var(--text);
         }
 
         @media (max-width: 768px) {
@@ -107,11 +110,9 @@
             <div class="loading-spinner" aria-hidden="true"></div>
             <h3 id="loading-title">Processing request</h3>
             <p id="loading-message">Preparing analysis workflow…</p>
-
             <div class="progress-shell" aria-hidden="true">
                 <div id="loading-progress-bar" class="progress-bar"></div>
             </div>
-
             <ul id="loading-steps" class="loading-steps">
                 <li class="active">Uploading files</li>
                 <li>Validating inputs</li>
